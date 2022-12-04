@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+
+<head>
+  <meta charset="utf-8">
+  <title>Park Picker</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/reset.css">
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body class="is-flex is-align-items-center is-justify-content-center is-vcentered">
+
+  <div class="modal" id="location-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content" id="location-box">
+      <div class="section has-background-light">
+        <h1 class="is-size-3">Starting Location</h1>
+        <div class="block"></div>
+        <div class="is-flex is-align-items-center mb-3">
+          <label class="switch">
+            <input type="checkbox" id="currentLocation">
+            <span class="slider round"></span>
+          </label>
+          <label class="ml-1 pt is-size-5 mb-1">Use Current Location</label>
+        </div>
+        <div class="field has-addons">
+          <input class="input" type="text" id="startCity" placeholder="Enter City Name">
+          <button class="button is-info is-outlined" id="updateBtn">Update Location</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal errorModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Invalid Input</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        User input was invalid. Please make sure to add your location, or make sure to search for an activity at one of
+        the national parks.
+      </section>
+    </div>
+  </div>
+
+  <div class="modal validationModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Please Select Location From Options</p>
+      </header>
+      <section class="modal-card-body">
+        <ul id="button-container">
+
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <button class="js-modal-trigger button is-info is-outlined " data-target="location-modal"
+    id="location-button">Location</button>
+
+  <div
+    class="section is-small is-flex is-flex-direction-column is-align-items-center mt-6 mb-4 has-background-light border"
+    id="search-box">
+
+    <div class="field has-addons column is-full">
+      <input class="input column is-three-quarters" type="text" placeholder="Search by Activities, State, or Park Name"
+        id="search-bar">
+      <button class="button is-info is-outlined" id="submit-search">Search</button>
+    </div>
+
+    <div class="section is-small is-flex is-justify-content-center is-align-items-center" id="recent-buttons">
+      <button class="button is-info is-outlined mx-3" onclick="recentSearch(0)" id="recent0"></button>
+      <button class="button is-info is-outlined mx-3" onclick="recentSearch(1)" id="recent1"></button>
+      <button class="button is-info is-outlined mx-3" onclick="recentSearch(2)" id="recent2"></button>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <script src="./assets/bulma.js"></script>
+  <script src="./assets/landing.js"></script>
+</body>
+
+</html>
