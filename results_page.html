@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Park Picker</title>
+  <link rel="stylesheet" href="./assets/reset.css">
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div class="columns is-centered m-0">
+    <div class="column is-two-fifths subtitle1 mt-1"><p id="search-terms"></p></div>
+    <div class="column is-one-fifth">
+      <button class="button is-info is-outlined has-text-weight-bold mt-1" id="search-again-btn">Search Again</button>
+    </div>
+  </div>
+
+  <div class="modal" id="detail-modal">
+    <div class="modal-background">
+    </div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title" id="park-name"></p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="columns">
+          <div class="column is-justify-content-center" id="park-desc">
+
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column pt-0" id="park-details">
+
+          </div>
+          <div class="column" id="map">
+
+          </div>
+        </div>
+        <div class="columns" id="weather">
+
+        </div>
+      </section>
+    </div>
+  </div>
+  <section class="section is-flex is-align-items-center">
+    <div class="container is-vcentered">
+      <div class="columns is-justify-content-center">
+        <div class="column is-half" id="results-column"></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+<script src="./assets/bulma.js"></script>
+<script src="./assets/results.js"></script>
+
+</html>
