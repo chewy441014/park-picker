@@ -1,7 +1,7 @@
 # Park Picker
 ### An app for exploring our National Parks.
 
-*By David Codner, Preston Hill, Michael Gostomski, and Elvin Mathews*
+*By David Codner, Preston Hill, Michael Gostomski, Penny and Chiemeka*
 
 ---
 <br>
