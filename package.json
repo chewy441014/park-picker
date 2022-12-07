@@ -1,18 +1,19 @@
 {
-  "name": "programming-thoughts",
+  "name": "park-picker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node Setup for running front and backend for Park Picker project",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "server": "cd server && npm run watch",
+    "client": "cd client && npm run start",
+    "develop": "concurrently \"server\" \"client\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Preston Hill, Michael Gostomski, Chiemeka Anunkor, Penelope Leung, David Codner",
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^5.1.0"
   }

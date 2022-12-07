@@ -18,7 +18,7 @@ function ParkDetailsCard() {
                 <div id="park-details">
                     {/* Default park image, get it from the API call */}
                 </div>
-                <div id="map">
+                <div id="map-parent">
                     {/* Default Map location, import subcomponent */}
                     <Map />
                 </div>
