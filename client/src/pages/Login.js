@@ -2,19 +2,19 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 // import components
-import SearchCard from '../components/SearchCard';
+
 
 import { QUERY_THOUGHTS } from '../utils/queries';
 // utils/queries needs to be modified
 
-const Home = () => {
+const Login = () => {
     const { loading, data } = useQuery(QUERY_THOUGHTS);
 
     return (
         <main>
-            <SearchCard />
+            
         </main>
     )
 }
 
-export default Home;
+export default Login;
