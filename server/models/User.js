@@ -90,13 +90,13 @@ function formatDate(createdAt) {
     return createdAt.toDateString();
 }
 
-User.create(
-    {
-        username: 'Penny',
-        email: 'penguin812@gmail.com',
-        password: 'password123'
-    },
-    (err) => (err ? handleError(err) : console.log('Created new user'))
-);
+// User.create(
+//     {
+//         username: 'Penny',
+//         email: 'penguin812@gmail.com',
+//         password: 'password123'
+//     },
+//     (err) => (err ? handleError(err) : console.log('Created new user'))
+// );
 
 module.exports = User;
