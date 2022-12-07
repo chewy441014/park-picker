@@ -34,7 +34,7 @@ function displayMap(startPoint, endPoint) {
 /*
 function getLatLon(userLocation) {
   var searchTerm = userLocation;
-  var requestUrl = 'https://www.mapquestapi.com/geocoding/v1/address?key=Q87JNminvctmB5QAimcXQlzSf33AmhqY&location=' + searchTerm;
+  var requestUrl = 'https://www.mapquestapi.com/geocoding/v1/address?key=MAPQUESTKEY&location=' + searchTerm;
   $.ajax({
     url: requestUrl,
     method: 'GET',
@@ -58,7 +58,7 @@ async function mapquestGetLatLon(query) {
 
 /*
 function findParksRelatedTo(searchTerm) {
-  var requestUrl = 'https://developer.nps.gov/api/v1/parks?q=' + searchTerm + '&api_key=VsW5K0iIIgUoBLJJejWXL1qmtDOOnKKy7fx22tfG';
+  var requestUrl = 'https://developer.nps.gov/api/v1/parks?q=' + searchTerm + '&api_key=NPSKEY';
   // get the parks related to the search term gives parkCode fairly limited
   $.ajax({
     url: requestUrl,
@@ -86,7 +86,7 @@ async function npsSearch(query) {
 /* weatherbit template
 function getForecast(userLocation) {
   var cityName = userLocation;
-  var requestUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?city=' + cityName + '&key=9d63d6881d944cc0b56b419592045f7b'
+  var requestUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?city=' + cityName + '&key=WEATHERKEY'
   $.ajax({
     url: requestUrl,
     method: 'GET',
