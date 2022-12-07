@@ -1,32 +1,12 @@
 import React from 'react';
-import Weather from '../weather';
-import Map from '../map';
 
 function ResultCard() {
     return (
         <div>
-            <header>
-                <h1 id="park-name">Default Park Name, Get it from the API</h1>
-                <button></button>
-            </header>
-            <div>
-                <div class="column is-justify-content-center" id="park-desc">
-                    {/* Default park description, get it from the API call */}
-                </div>
-            </div>
-            <div>
-                <div id="park-details">
-                    {/* Default park image, get it from the API call */}
-                </div>
-                <div id="map">
-                    {/* Default Map location, import subcomponent */}
-                    <Map />
-                </div>
-            </div>
-            <div id="weather">
-                {/* Default weather location, import subcomponent */}
-                <Weather />
-            </div>
+            <p>Park Name</p>
+            <p>Park State</p>
+            <p>Park Description</p>
+            <p>Park Distance</p>
         </div>
     );
 }

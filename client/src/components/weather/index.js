@@ -1,4 +1,5 @@
 import React from 'react';
+import WeatherCard from '';
 
 function Weather() {
     return (
@@ -8,7 +9,13 @@ function Weather() {
               * const listItems = numbers.map((number) =>
               *   <li>{number}</li>
               * ); 
-              * display five weather cards */}
+              * display five weather cards
+              * temporarily display five blank weather cards */}
+            <WeatherCard />
+            <WeatherCard />
+            <WeatherCard />
+            <WeatherCard />
+            <WeatherCard />
         </div>
     );
 }
