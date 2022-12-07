@@ -1,30 +1,59 @@
-const connection = require('../config/connection');
+const db = require('../config/connection');
 const { User } = require('../models');
 
-const users = [
+const usersData = [
     {
+        "firstName": "David",
+        "lastName": "Codner",
         "username": "David",
-        "email": "dccodner1@email.com",
+        "email": "david@email.com",
         "password": "password123"
+
     },
     {
+        "firstName": "Michael",
+        "lastName": "Gostomski",
         "username": "Michael",
-        "email": "dccodner1@email.com",
+        "email": "Michael@email.com",
         "password": "password123"
     },
     {
+        "firstName": "Penny",
+        "lastName": "Leung",
         "username": "Penny",
-        "email": "dccodner1@email.com",
+        "email": "Penny@email.com",
         "password": "password123"
     },
     {
+        "firstName": "Preston",
+        "lastName": "Hill",
         "username": "Preston",
-        "email": "dccodner1@email.com",
+        "email": "Preston@email.com",
         "password": "password123"
     },
     {
+        "firstName": "Chiemeka",
+        "lastName": "Anunkor",
         "username": "Chiemeka",
-        "email": "dccodner1@email.com",
+        "email": "Chiemeka@email.com",
         "password": "password123"
     },
 ]
+
+db.once('open', async () => {
+    console.log("===================================");
+    console.log("Initializing Connection");
+
+    await User.deleteMany({});
+    console.log("Database cleared");
+
+    console.log("===================================");
+    console.log("Seeding Users");
+    const users = await User.insertMany(usersData);
+    console.log("Users successfully seeded");
+    console.log("===================================")
+
+    console.log("   ");
+    console.log("Database Seeded, Happy Hacking!");
+    process.exit(0);
+});
