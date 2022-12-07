@@ -1,5 +1,5 @@
 import React from "react";
-import WeatherCard from "";
+import WeatherCard from "../weathercard";
 
 function Weather() {
   return (

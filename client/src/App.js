@@ -49,7 +49,7 @@ function App() {
           <div className="container">
             <Routes>
               <Route 
-                path="/"
+                path="/home"
                 element={<Home />}
               />
               {/* Add additional routes */}
