@@ -40,7 +40,19 @@ const searchSchema = new mongoose.Schema(
 
 const userSchema = new mongoose.Schema(
     {
-        username: {
+        firstName: {
+            type: String,
+            unique: true,
+            required: true,
+            trim: true,
+        },
+        lastName: {
+            type: String,
+            unique: true,
+            required: true,
+            trim: true,
+        },
+        userName: {
             type: String,
             unique: true,
             required: true,
@@ -68,18 +80,29 @@ const userSchema = new mongoose.Schema(
     {
         toJSON: {
             virtuals: true,
+            getter: true,
         },
         id: false,
     }
 );
 
-userSchema.virtual('savedSearchCount')
+userSchema.virtual('savedSearchCount',)
     .get(function () {
         if (this.recentSearches) {
             return this.recentSearches.length;
         }
     });
 
+userSchema
+    .virtual('fullName')
+    .get(function () {
+      return `${this.firstName} ${this.lastName}`;
+    })
+    .set(function (v) {
+      const firstName = v.split(' ')[0];
+      const lastName = v.split(' ')[1];
+      this.set({ firstName, lastName });
+    });
 
 
 const User = model('user', userSchema);
