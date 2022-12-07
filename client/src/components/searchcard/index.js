@@ -32,4 +32,4 @@ function SearchCard() {
     );
 }
 
-export default SearchCard
+export default SearchCard;
