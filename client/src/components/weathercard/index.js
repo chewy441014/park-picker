@@ -10,7 +10,6 @@ function WeatherCard() {
             <p><span id="weatherIcon"></span></p>
             <p>Description: <span id="desc"></span></p>
             <p>Visibility: <span id="vis"></span></p>
-
         </div>
     );
 }
