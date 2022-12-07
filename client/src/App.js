@@ -1,11 +1,16 @@
-import React from 'react';
-import SearchCard from './components/searchcard';
+import React from "react";
+import Footer from "./components/footer";
+import Navbar from "./components/navbar";
+import Weather from "./components/weather";
 
-
-export default function App() {
+function App() {
   return (
-    <div>
-      <SearchCard />
-    </div>
+    <>
+      <Navbar />
+       <SearchCard />
+      <Footer />
+    </>
   );
 }
+
+export default App;
