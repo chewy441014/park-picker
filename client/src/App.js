@@ -1,13 +1,12 @@
 import React from "react";
 import Footer from "./components/footer";
-import Navbar from "./components/navbar";
-import Weather from "./components/weather";
-
+import Navbars from "./components/navbar";
+import SearchCard from "./components/searchcard";
 function App() {
   return (
     <>
-      <Navbar />
-       <SearchCard />
+      <Navbars />
+      <SearchCard />
       <Footer />
     </>
   );
