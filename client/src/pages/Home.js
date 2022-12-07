@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 // import components
-import SearchCard from '../components/SearchCard';
+import SearchCard from '../components/searchcard';
 
 import { QUERY_THOUGHTS } from '../utils/queries';
 // utils/queries needs to be modified
