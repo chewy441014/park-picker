@@ -8,10 +8,9 @@ function Navbars() {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Park Picker</Navbar.Brand>
+        <Container className="nav-custom">
+          <Navbar.Brand href="/home">Park Picker</Navbar.Brand>
           <Nav className="ml-5">
-            <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/signup">Sign Up</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/userdash">User Dashboard</Nav.Link>

@@ -1,7 +1,8 @@
 {
-  "name": "mern-server",
+  "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node setup for the Park Picker project server",
+  "private": true,
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,8 +10,8 @@
     "seed": "node seeds/seed.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Preston Hill, Michael Gostomski, Chiemeka Anunkor, Penelope Leung, David Codner",
+  "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.0",
