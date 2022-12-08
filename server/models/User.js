@@ -122,4 +122,4 @@ function formatDate(createdAt) {
 //     (err) => (err ? handleError(err) : console.log('Created new user'))
 // );
 
-module.exports = User;
+module.exports ={ User, searchSchema };
