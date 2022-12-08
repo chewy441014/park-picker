@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 // mapquest api requests
 
 /*
@@ -17,15 +16,15 @@ function getLatLon(userLocation) {
 */
 
 async function mapquestGetLatLon(query) {
-    try {
-        const response = await axios.get('https://www.mapquestapi.com/geocoding/v1/address?key=' + process.env.MAPQUEST_API + '&location=' + query);
-        let locationData = response.results[0].locations[0].latLng;
-        console.log(locationData);
-        return locationData;
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
+  try {
+    const response = await axios.get('https://www.mapquestapi.com/geocoding/v1/address?key=' + process.env.MAPQUEST_API + '&location=' + query);
+    let locationData = response.results[0].locations[0].latLng;
+    console.log(locationData);
+    return locationData;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 }
 
 // national parks api requests
@@ -46,25 +45,23 @@ function findParksRelatedTo(searchTerm) {
 */
 
 async function npsSearch(query) {
-    try {
-        const response = await axios.get('https://developer.nps.gov/api/v1/parks?q=' + query + '&api_key=' + process.env.NPS_API);
-        console.log(response);
-        return response;
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
+  try {
+    const response = await axios.get('https://developer.nps.gov/api/v1/parks?q=' + query + '&api_key=' + process.env.NPS_API);
+    console.log(response);
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 }
 
 async function npsGetActivities() {
   try {
-      const response = await axios.get('https://developer.nps.gov/api/v1/activities?api_key=VsW5K0iIIgUoBLJJejWXL1qmtDOOnKKy7fx22tfG');
-      console.log(process.env.NPS_API)
-      console.log(response.data);
-      return response.data;
+    const response = await axios.get('/api/nps/getActivities');
+    return response.data;
   } catch (err) {
-      console.log(err);
-      return err;
+    console.log(err);
+    return err; 
   }
 }
 
@@ -85,14 +82,15 @@ function getForecast(userLocation) {
 */
 
 async function weather(query) {
-    try {
-        const response = await axios.get('https://api.weatherbit.io/v2.0/forecast/daily?city=' + query + '&key=' + process.env.WEATHER_API);
-        console.log(response);
-        return response;
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
+  try {
+    const response = await axios.get('https://api.weatherbit.io/v2.0/forecast/daily?city=' + query + '&key=' + process.env.WEATHER_API);
+    console.log(response);
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 }
 
-export default { weather, mapquestGetLatLon, npsSearch, npsGetActivities };
+const apicalls = { weather, mapquestGetLatLon, npsSearch, npsGetActivities };
+export default apicalls;

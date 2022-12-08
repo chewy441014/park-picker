@@ -8,13 +8,13 @@ import API from '../../utils/API';
 async function SearchCard() {
 
     const activities = await API.npsGetActivities();
-    console.log(activities.data);
+    console.log(activities);
 
     return (
         <div>
             <Form>
                 <Form.Group className="mb-3" controlId="formActivityList">
-                    <Form.Label>Select park activities.</Form.Label>
+                    <Form.Label className='d-flex justify-content-center'><h4>Select park activities:</h4></Form.Label>
                     <Form.Select>
                         <option>Nothing selected</option>
                         <option>Camping</option>
