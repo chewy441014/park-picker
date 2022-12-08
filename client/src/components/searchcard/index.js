@@ -25,7 +25,7 @@ function SearchCard() {
                     <Form.Control type="text" placeholder="123 Fake St..." />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Search
                 </Button>
             </Form>
         </div>
