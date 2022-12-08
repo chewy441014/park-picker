@@ -89,7 +89,7 @@ function App() {
             </Routes>
 
           </div>
-          <Footer />
+          <Footer/>
         </body>
       </Router>
     </ApolloProvider>
