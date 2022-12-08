@@ -1,8 +1,15 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import API from '../../utils/API';
 
-function SearchCard() {
+// export default { weather, mapquestGetLatLon, npsSearch, npsGetActivities };
+
+async function SearchCard() {
+
+    const activities = await API.npsGetActivities();
+    console.log(activities.data);
+
     return (
         <div>
             <Form>
