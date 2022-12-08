@@ -1,11 +1,14 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
-const { User, searchSchema } = require('../models');
+const { User, Trip } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('recentSearches');
+    },
+    trip: async (parent, { searchId }) => {
+      return Trip.findOne({ searchId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -17,7 +20,7 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { firstName, lastName, username, email, password }) => {
-      const user = await User.create({ username, firstname, lastname, email, password });
+      const user = await User.create({ username, firstName, lastName, email, password });
       const token = signToken(user);
       return { token, user };
     },
