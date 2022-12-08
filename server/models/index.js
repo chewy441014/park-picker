@@ -1,4 +1,5 @@
-const { User, searchSchema } = require('./User');
+const { User } = require('./User');
+const { Trip } = require('./Trip');
 
-module.exports = { User, searchSchema };
+module.exports = { User, Trip };
 

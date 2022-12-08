@@ -1,17 +1,17 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type: User {
+  type User {
     _id: ID
     firstName: String
     lastName: String
     username: String
     email: String
     password: String
-    recentSearches: [searchSchema]!
+    recentSearches: [Trip]
   }
 
-  type searchSchema {
+  type Trip {
     searchId: ID
     searchQuery: String
     location: String
@@ -26,8 +26,6 @@ const typeDefs = gql`
 
   type Query {
     user(username: String!): User
-    trips(username: String!): [Trip]
-    trip(tripId: ID!): Trip
     me: User
   }
 
@@ -37,9 +35,9 @@ const typeDefs = gql`
         lastName: String!,
         username: String!, 
         email: String!, 
-        password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addTrip(userQuery: String!, userSearch: String!, createdAt: String)
+        password: String!): Auth,
+    login(email: String!, password: String!): Auth,
+    addTrip(userQuery: String!, userSearch: String!, createdAt: String): Auth
   }
 `;
 
