@@ -7,8 +7,8 @@ import Nav from "react-bootstrap/Nav";
 function Navbars() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Container className="nav-custom">
+      <Navbar className="d-flex justify-content-between" bg="dark" variant="dark">
+        <Container className="">
           <Navbar.Brand href="/home">Park Picker</Navbar.Brand>
           <Nav className="ml-5">
             <Nav.Link href="/signup">Sign Up</Nav.Link>

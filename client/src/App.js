@@ -1,4 +1,5 @@
 import React from 'react';
+import "./index.css";
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,8 +7,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
+
+import background from "./assets/images/backgrounds/big_prairie.jpg"
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -15,6 +18,8 @@ import Profile from './pages/Profile';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Results from './pages/Results';
+
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,39 +45,52 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const myStyle = {
+  background: `url(${background})`,
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+};
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <body style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
-          <div className="container">
+          <div className="container mt-5 bg-white justify-center border search-box ">
             <Routes>
-              <Route 
+              <Route
                 path="/home"
                 element={<Home />}
               />
               {/* Add additional routes */}
-              <Route 
+              <Route
                 path="/login"
                 element={<Login />}
               />
-              <Route 
+              <Route
                 path="/signup"
                 element={<Signup />}
               />
-              <Route 
+              <Route
                 path="/userdash"
                 element={<Profile />}
               />
-              <Route 
+              <Route
                 path="/search"
                 element={<Results />}
               />
+              <Route
+                path="*"
+                element={
+                  <Navigate to="/home" />
+                }
+              />
             </Routes>
+
           </div>
           <Footer />
-        </div>
+        </body>
       </Router>
     </ApolloProvider>
   );
