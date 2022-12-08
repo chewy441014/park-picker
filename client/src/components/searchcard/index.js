@@ -1,9 +1,27 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import API from '../../utils/API';
+import API from '../../utils/API';
+import { useState, useEffect } from 'react';
 
-async function SearchCard() {
+function SearchCard() {
+
+    const [activities, setActivities] = useState([]);
+
+    const getActivities = async () => {
+        const response = await API.npsGetActivities();
+        // console.log(response.data)
+        const list = response.data;
+        list.unshift("Nothing Selected");
+        setActivities(list);
+    }
+
+
+    // console.log(activities);
+    useEffect(() => {
+        getActivities();
+        // console.log(activities)
+    }, []);
 
     return (
         <div>
@@ -11,10 +29,9 @@ async function SearchCard() {
                 <Form.Group className="mb-3" controlId="formActivityList">
                     <Form.Label className='d-flex justify-content-center'><h4>Select park activities:</h4></Form.Label>
                     <Form.Select>
-                        <option>Nothing selected</option>
-                        <option>Camping</option>
-                        <option>Swimming</option>
-                        <option>Hiking</option>
+                        {activities.map((elem, index) => 
+                            <option key={index}> {elem} </option>
+                        )}
                     </Form.Select>
                 </Form.Group>
                 <Form.Check

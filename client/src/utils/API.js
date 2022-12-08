@@ -58,7 +58,7 @@ async function npsSearch(query) {
 async function npsGetActivities() {
   try {
     const response = await axios.get('/api/nps/getActivities');
-    return response.data;
+    return response;
   } catch (err) {
     console.log(err);
     return err; 
