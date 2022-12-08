@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { User } = require('../models');
+const { User, Trip } = require('../models');
 
 const usersData = [
     {
@@ -40,17 +40,42 @@ const usersData = [
     },
 ]
 
+const tripData = [
+    {
+        "searchQuery": "Camping",
+        "location": "Austin, TX",
+        "username": "David"
+    },
+    {
+        "searchQuery": "Hiking",
+        "location": "Austin, TX",
+        "username": "Preston"
+    },
+    {
+        "searchQuery": "Swimming",
+        "location": "Austin, TX",
+        "username": "Penny"
+    },
+]
+
 db.once('open', async () => {
     console.log("===================================");
     console.log("Initializing Connection");
 
     await User.deleteMany({});
+    await Trip.deleteMany({});
     console.log("Database cleared");
 
     console.log("===================================");
     console.log("Seeding Users");
     const users = await User.insertMany(usersData);
     console.log("Users successfully seeded");
+    console.log("===================================")
+
+    console.log("===================================");
+    console.log("Seeding Trips");
+    const trips = await Trip.insertMany(tripData);
+    console.log("Trips successfully seeded");
     console.log("===================================")
 
     console.log("   ");
