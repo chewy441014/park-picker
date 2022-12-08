@@ -9,9 +9,11 @@ import { QUERY_THOUGHTS } from '../utils/queries';
 
 const Home = () => {
     const { loading, data } = useQuery(QUERY_THOUGHTS);
-
+    const myStyle={
+ 
+    };
     return (
-        <main>
+        <main style={myStyle}>
             <SearchCard />
         </main>
     )
