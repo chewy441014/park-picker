@@ -1,0 +1,10 @@
+
+.search-box {
+    width: 75%;
+    box-shadow: 0 0 5px 0;
+    border-radius: 15px;
+}
+
+.border {
+    border: 4px solid #3C4729;
+}
