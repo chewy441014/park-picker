@@ -8,10 +8,10 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    recentSearches: [searchSchema]!
+    recentSearches: [Trip]
   }
 
-  type searchSchema {
+  type Trip {
     searchId: ID
     searchQuery: String
     location: String
@@ -26,7 +26,6 @@ const typeDefs = gql`
 
   type Query {
     user(username: String!): User
-    trips(username: String!): [recentSearches]
     me: User
   }
 
