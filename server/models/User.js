@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema(
         recentSearches: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'Trip'
+                ref: 'trip'
             }
         ],   
     },
