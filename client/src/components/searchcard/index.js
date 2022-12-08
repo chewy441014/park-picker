@@ -7,7 +7,7 @@ function SearchCard() {
         <div>
             <Form>
                 <Form.Group className="mb-3" controlId="formActivityList">
-                    <Form.Label>Select park activities.</Form.Label>
+                    <Form.Label className='d-flex justify-content-center'><h4>Select park activities:</h4></Form.Label>
                     <Form.Select>
                         <option>Nothing selected</option>
                         <option>Camping</option>
