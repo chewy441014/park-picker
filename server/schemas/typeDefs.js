@@ -37,7 +37,7 @@ const typeDefs = gql`
         username: String!, 
         email: String!, 
         password: String!): Auth,
-    login(email: String!, password: String!): Auth,
+    login(username: String!, password: String!): Auth,
     addTrip(userQuery: String!, userSearch: String!, createdAt: String): Auth
   }
 `;

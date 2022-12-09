@@ -25,6 +25,10 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { username, password }) => {
+      console.log(username);
+      console.log(password);
+
+      // Stretch goal, login with either username or email
       const user = await User.findOne({ username });
       if (!user) {
         throw new AuthenticationError('User not found');
