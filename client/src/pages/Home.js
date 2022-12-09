@@ -3,18 +3,10 @@ import React from 'react';
 // import components
 import SearchCard from '../components/searchcard';
 
-//import { QUERY_THOUGHTS } from '../utils/queries';
-// utils/queries needs to be modified
-
-const Home = () => {
-    //const { loading, data } = useQuery(QUERY_THOUGHTS);
-    const myStyle={
- 
-    };
+const Home = (props) => {
     return (
-        <main style={myStyle}>
-            <SearchCard />
-            
+        <main>
+            <SearchCard data={props}/>
         </main>
     )
 }

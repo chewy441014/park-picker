@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./index.css";
 import {
   ApolloClient,
@@ -8,8 +8,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
-
 import background from "./assets/images/backgrounds/big_prairie.jpg"
 import Home from './pages/Home';
 import Signup from './pages/Signup';
@@ -18,8 +16,6 @@ import Profile from './pages/Profile';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Results from './pages/Results';
-
-
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,16 +48,21 @@ const myStyle = {
 };
 
 function App() {
+
+  const [searchResult, setSearchResult] = useState();
+  const [location, setLocation] = useState();
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
           <div className="container mt-5 w-50 bg-white justify-center border search-box ">
+            {/* context provider wraps routes */}
             <Routes>
               <Route
                 path="/home"
-                element={<Home />}
+                element={<Home data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} }/>}
               />
               {/* Add additional routes */}
               <Route
@@ -79,8 +80,7 @@ function App() {
               {/* pass props to search setup */}
               <Route
                 path="/search"
-                element={<Results />}
-                render={(props) => <Results {...props} />}
+                element={<Results data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} } />}
               />
               <Route
                 path="*"

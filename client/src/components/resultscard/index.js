@@ -2,30 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import "./style.css"
 
-
-function ResultCard({ route }) {
-    const { search, userLatLon } = route.params;
-    console.log("=======================")
-    console.log(search)
-    console.log(userLatLon)
-
+function ResultCard(props) {
+    console.log(props)
 
     const [searchResults, setSearchResult] = useState([])
-
-    useEffect(() => {
-        axios.get("https://developer.nps.gov/api/v1/parks?q=austin&api_key=VsW5K0iIIgUoBLJJejWXL1qmtDOOnKKy7fx22tfG").then(res => {
-            console.log(res.data)
-            setSearchResult(res.data.data)
-        })
-
-    }, [])
-
 
     return (
         <div >
             <button className='searchAgain'>
                 Search Again
             </button>
+            <h1>{props.title}</h1>
             <div className='searchContainer'>
                 {
                     searchResults.map((data) =>
@@ -46,11 +33,8 @@ function ResultCard({ route }) {
                                     distance: { }
                                 </p>
                             </div>
-
-                        </div>)
-                        
+                        </div>)   
                 }
-
             </div>
         </div>
     );
