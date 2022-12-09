@@ -11,6 +11,7 @@ const Navbars = () => {
 
   const logout = (e) => {
     e.preventDefault();
+    console.log('here, look a logout event')
     Auth.logout();
   };
 
@@ -30,7 +31,7 @@ const Navbars = () => {
             <>
             <span className="nav-link">Hi, {Auth.getProfile().data.firstName}!</span>
             <Nav.Link href="/userdash">User Dashboard</Nav.Link>
-            <Nav.Link href="/logout" onClick={() => logout}>Logout</Nav.Link>
+            <Nav.Link onClick={(event) => logout(event) }>Logout</Nav.Link>
             </>
             )}
           </Nav>
