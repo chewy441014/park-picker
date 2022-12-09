@@ -57,7 +57,7 @@ function App() {
       <Router>
         <div style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
-          <div className="container mt-5 bg-white justify-center border search-box ">
+          <div className="container mt-5 w-50 bg-white justify-center border search-box ">
             <Routes>
               <Route
                 path="/home"
@@ -79,7 +79,8 @@ function App() {
               {/* pass props to search setup */}
               <Route
                 path="/search"
-                render={ (props) => <Results { ...props} /> }
+                element={<Results />}
+                render={(props) => <Results {...props} />}
               />
               <Route
                 path="*"
@@ -90,7 +91,7 @@ function App() {
             </Routes>
 
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

@@ -25,7 +25,7 @@ function onLoad() {
   // search for the related search terms so the results can be displayed
   findParksRelatedTo(userSearch, locationData);
   // setup the onclick function for the search again button
-  $('#search-again-btn').on('click', searchAgain);  
+  $('#search-again-btn').on('click', searchAgain);
 }
 
 // load local storage to the global variables 
@@ -171,7 +171,7 @@ function displayResults() {
   userSearch = JSON.parse(localStorage.getItem('userSearch'));
   userLocation = JSON.parse(localStorage.getItem('userLocation'));
 
-$('#search-terms').text('Displaying results for ' + userSearch + ' near ' + userLocation + '.');
+  $('#search-terms').text('Displaying results for ' + userSearch + ' near ' + userLocation + '.');
   var resultsColumn = $('#results-column');
   for (i = 0; i < 10; i++) {
     var resultItemCard = $('<div>').addClass('card border block js-modal-trigger').attr('id', `card${i}`).attr('data-target', 'detail-modal');
@@ -238,11 +238,11 @@ function updateWeather() {
 function generateWeatherCard() {
   // generate five cards with appropriate default text for filling with data
   var weatherSection = $("#weather");
-  weatherSection.css("margin-top","10px");
+  weatherSection.css("margin-top", "10px");
   for (let i = 0; i < 5; i++) {
     // for each card, generate the default text
     var myCard = $("<div>");
-    myCard.css({"border":"3px solid","border-radius":"10px", "margin":"10px"});
+    myCard.css({ "border": "3px solid", "border-radius": "10px", "margin": "10px" });
     myCard.addClass("column");
     myCard.attr("id", `day${i + 1}`);
     var myTemp = $("<p>");

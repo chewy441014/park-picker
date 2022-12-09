@@ -13,16 +13,8 @@ function SearchResults() {
               * display ten search results 
               * temporarily show ten by default
               */}
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
-              <ResultsCard />
+            <ResultsCard />
+
         </div>
     );
 }

@@ -4,8 +4,9 @@ import GithubIcon from "../../assets/images/icons/github-mark/github-mark-white.
 
 function Footer() {
   return (
-    <footer className="d-flex flex-column align-items-center bg-dark">
+    <footer className="d-flex flex-column align-items-center bg-dark mt-5">
       <div className="d-flex flex-column align-items-center">
+ footerStylingV3
         <div class="githubIcon">
         <h5 className="text-white mx-1 mg">Contributors <a href="https://github.com/chewy441014/park-picker" target="_blank" rel="noopener noreferrer"><img src={GithubIcon} alt="github-repo" width={35}/></a></h5>
         </div>
