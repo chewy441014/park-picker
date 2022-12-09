@@ -13,7 +13,7 @@ function SearchCard() {
     const getActivities = async () => {
         const response = await API.npsGetActivities();
         // console.log(response.data)
-        const list = response.data;
+        const list = response;
         list.unshift("Nothing Selected");
         setActivities(list);
     }
@@ -21,15 +21,26 @@ function SearchCard() {
     const searchNPS = async (query) => {
         // query needs to be an array of strings
         const response = await API.npsSearch(query);
-        console.log(response);
-        // 
+        // console.log('User selected ' + query + ', searching NPS API for results: ---------------')
+        // console.log(response);
+        // console.log('NPS API RESPONSE ABOVE');
+        return response;
     }
 
-    const handleFormSubmit = (e) => {
+    const getUserLocation = async (query) => {
+        const response = await API.mapquestGetLatLon(query)
+        // console.log('User searched location ' + query + ', searching Mapquest API for results: ---------------')
+        // console.log(response)
+        // console.log('MAPQUEST API RESPONSE ABOVE');
+        return response;
+    }
+
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
         // pull current versions of both refs
-        console.log(activity.current?.value, location.current?.value)
-        searchNPS(activity.current?.value)
+        const searchResult = await searchNPS(activity.current?.value);
+        const userLatLon = await getUserLocation(location.current?.value);
+        console.log(searchResult, userLatLon);
         // call searchNPS and mapquest GEOLOCATION
         // verify that all inputs are good, 
         // redirect the user to the results page, and pass the api responses to that other page

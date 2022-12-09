@@ -15,9 +15,7 @@ nps.get('/getActivities', async (req, res) => {
 
 nps.get('/search', async (req, res) => {
     try {
-        // console.log(req)
-        let query = "hiking";
-        const response = await axios.get('https://developer.nps.gov/api/v1/parks?q=' + query + '&api_key=' + process.env.NPS_API);
+        const response = await axios.get('https://developer.nps.gov/api/v1/parks?q=' + req.query.search + '&api_key=' + process.env.NPS_API);
         res.status(200).json(response.data)
       } catch (err) {
         console.log(err);

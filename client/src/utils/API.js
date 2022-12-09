@@ -16,11 +16,13 @@ function getLatLon(userLocation) {
 */
 
 async function mapquestGetLatLon(query) {
+  // expects a string
   try {
-    const response = await axios.get('https://www.mapquestapi.com/geocoding/v1/address?key=' + process.env.MAPQUEST_API + '&location=' + query);
-    let locationData = response.results[0].locations[0].latLng;
-    console.log(locationData);
-    return locationData;
+    const params = {
+      userLocation: query
+    }
+    const response = await axios.get('/api/mapquest/geoLocation', { params });
+    return response.data;
   } catch (err) {
     console.log(err);
     return err;
@@ -45,13 +47,12 @@ function findParksRelatedTo(searchTerm) {
 */
 
 async function npsSearch(query) {
-  // let's assign query is an array of strings of search terms
   try {
     const params = {
-      searchList: query,
+      search: query,
     }
-    const response = await axios.get('/api/nps/search', null, { params });
-    return response;
+    const response = await axios.get('/api/nps/search', { params });
+    return response.data;
   } catch (err) {
     console.log(err);
     return err;
@@ -61,7 +62,7 @@ async function npsSearch(query) {
 async function npsGetActivities() {
   try {
     const response = await axios.get('/api/nps/getActivities');
-    return response;
+    return response.data;
   } catch (err) {
     console.log(err);
     return err; 
@@ -86,9 +87,11 @@ function getForecast(userLocation) {
 
 async function weather(query) {
   try {
-    const response = await axios.get('https://api.weatherbit.io/v2.0/forecast/daily?city=' + query + '&key=' + process.env.WEATHER_API);
-    console.log(response);
-    return response;
+    const params = {
+      city: query,
+    }
+    const response = await axios.get('/api/weather', { params });
+    return response.data;
   } catch (err) {
     console.log(err);
     return err;
