@@ -7,7 +7,8 @@ import Nav from "react-bootstrap/Nav";
 function Navbars() {
   return (
     <>
-      <Navbar className="d-flex justify-content-between" bg="dark" variant="dark">
+      {/* <Navbar className="d-flex justify-content-between" bg="dark" variant="dark"> */}
+      <Navbar className="d-flex justify-content-between" bg="warning" variant="secondary">
         <Container className="">
           <Navbar.Brand href="/home">Park Picker</Navbar.Brand>
           <Nav className="ml-5">
