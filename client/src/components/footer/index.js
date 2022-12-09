@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="d-flex flex-column align-items-center bg-dark mt-5">
       <div className="d-flex flex-column align-items-center">
-        <div class="githubIcon">
+        <div className="githubIcon">
           <h5 className="text-white mx-1 mg pt-2">Contributors <a href="https://github.com/chewy441014/park-picker"><img src={GithubIcon} alt="github-repo" width={35} /></a></h5>
         </div>
         <ul className="nav d-flex flex-row mt-2">

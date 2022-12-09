@@ -10,7 +10,7 @@ function ParkDetailsCard() {
                 <button></button>
             </header>
             <div>
-                <div class="column is-justify-content-center" id="park-desc">
+                <div className="column is-justify-content-center" id="park-desc">
                     {/* Default park description, get it from the API call */}
                 </div>
             </div>

@@ -79,7 +79,8 @@ function App() {
               {/* pass props to search setup */}
               <Route
                 path="/search"
-                render={ (props) => <Results { ...props} /> }
+                element={<Results />}
+                render={(props) => <Results {...props} />}
               />
               <Route
                 path="*"
@@ -90,7 +91,7 @@ function App() {
             </Routes>
 
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
