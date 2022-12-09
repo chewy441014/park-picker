@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultsCard from '../resultscard';
 
-function SearchResults() {
+function SearchResults(props) {
     return (
         <div id="results-column">
             {/* Iterate over the results and show them in a list
@@ -13,7 +13,7 @@ function SearchResults() {
               * display ten search results 
               * temporarily show ten by default
               */}
-            <ResultsCard />
+            <ResultsCard data={props.data} />
 
         </div>
     );
