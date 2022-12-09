@@ -57,7 +57,7 @@ function App() {
       <Router>
         <body style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
-          <div className="container mt-5 bg-white justify-center border search-box ">
+          <div className="container mt-5 w-50 bg-white justify-center border search-box ">
             <Routes>
               <Route
                 path="/home"
@@ -89,7 +89,7 @@ function App() {
             </Routes>
 
           </div>
-          <Footer/>
+          <Footer />
         </body>
       </Router>
     </ApolloProvider>
