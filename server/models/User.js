@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const model = mongoose.model;
+const bcrypt = require('bcrypt');
+
 
 const userSchema = new mongoose.Schema(
     {
@@ -43,7 +45,7 @@ const userSchema = new mongoose.Schema(
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'trip'
             }
-        ],   
+        ],
     },
     {
         toJSON: {
@@ -64,30 +66,32 @@ userSchema.virtual('savedSearchCount',)
 userSchema
     .virtual('fullName')
     .get(function () {
-      return `${this.firstName} ${this.lastName}`;
+        return `${this.firstName} ${this.lastName}`;
     })
     .set(function (v) {
-      const firstName = v.split(' ')[0];
-      const lastName = v.split(' ')[1];
-      this.set({ firstName, lastName });
+        const firstName = v.split(' ')[0];
+        const lastName = v.split(' ')[1];
+        this.set({ firstName, lastName });
     });
 
 
-const User = model('user', userSchema);
+userSchema.pre('validate', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+    next();
+});
 
-const handleError = (err) => console.error(err);
+userSchema.methods.isCorrectPassword = async function (password) {
+    console.log()
+    return bcrypt.compare(password, this.password);
+};
+
+const User = model('user', userSchema);
 
 function formatDate(createdAt) {
     return createdAt.toDateString();
 }
-
-// User.create(
-//     {
-//         username: 'Penny',
-//         email: 'penguin812@gmail.com',
-//         password: 'password123'
-//     },
-//     (err) => (err ? handleError(err) : console.log('Created new user'))
-// );
 
 module.exports = { User };

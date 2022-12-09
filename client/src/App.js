@@ -76,9 +76,10 @@ function App() {
                 path="/userdash"
                 element={<Profile />}
               />
+              {/* pass props to search setup */}
               <Route
                 path="/search"
-                element={<Results />}
+                render={ (props) => <Results { ...props} /> }
               />
               <Route
                 path="*"

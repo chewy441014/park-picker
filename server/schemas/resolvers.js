@@ -19,12 +19,16 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { firstName, lastName, username, email, password }) => {
-      const user = await User.create({ username, firstName, lastName, email, password });
+    addUser: async (parent, { username, email, password, firstName, lastName }) => {
+      const user = await User.create({ username, email, password, firstName, lastName });
       const token = signToken(user);
       return { token, user };
     },
     login: async (parent, { username, password }) => {
+      console.log(username);
+      console.log(password);
+
+      // Stretch goal, login with either username or email
       const user = await User.findOne({ username });
       if (!user) {
         throw new AuthenticationError('User not found');
