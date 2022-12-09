@@ -1,5 +1,4 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
 
 // import components
 import SearchCard from '../components/searchcard';
@@ -15,6 +14,7 @@ const Home = () => {
     return (
         <main style={myStyle}>
             <SearchCard />
+            
         </main>
     )
 }

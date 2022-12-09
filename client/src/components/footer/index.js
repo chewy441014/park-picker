@@ -7,7 +7,7 @@ function Footer() {
     <footer className="d-flex flex-column align-items-center bg-dark">
       <div className="d-flex flex-column align-items-center">
         
-        <h5 className="text-muted mx-1">Contributors <img src={GithubIcon} alt="github-repo" width={50}/><a href="https://github.com/chewy441014/park-picker"></a></h5>
+        <h5 className="text-muted mx-1">Contributors <a href="https://github.com/chewy441014/park-picker"><img src={GithubIcon} alt="github-repo" width={50}/></a></h5>
         <ul className="nav d-flex flex-row mt-2">
           <li className="nav-item mb-2 mx-1"><a href="https://www.linkedin.com/in/david-codner-008483251/" className="nav-link p-0 text-muted">David Codner |</a></li>
           <li className="nav-item mb-2 mx-1"><a href="https://www.linkedin.com/in/hillpreston/" className="nav-link p-0 text-muted">Preston Hill |</a></li>
