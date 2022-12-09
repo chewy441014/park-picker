@@ -80,7 +80,6 @@ userSchema.pre('validate', async function (next) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
     }
-
     next();
 });
 
@@ -89,15 +88,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-
 const User = model('user', userSchema);
-
-
 
 function formatDate(createdAt) {
     return createdAt.toDateString();
 }
-
-
 
 module.exports = { User };

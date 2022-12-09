@@ -1,37 +1,36 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
 
-const Signup = () => {
-  const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
+const Signup = (props) => {
+  const firstName = useRef();
+  const lastName = useRef();
+  const email = useRef();
+  const username = useRef();
+  const password = useRef();
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
-        variables: { ...formState },
-      });
+        variables: {
+          firstName: firstName.current?.value,
+          lastName: lastName.current?.value,
+          email: email.current?.value,
+          username: username.current?.value,
+          password: password.current?.value,
 
+        },
+      });
+      console.log(data)
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
@@ -48,48 +47,21 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/home">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+              <Form className="d-flex flex-column align-items-center">
+                <Form.Control className="form-input" type="text" placeholder="First Name" ref={firstName} />
+                <Form.Control className="form-input" type="text" placeholder="Last Name" ref={lastName} />
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
+                <Form.Control className="form-input" type="text" placeholder="New Username" ref={username} />
+                <Form.Control className="form-input" type="text" placeholder="Email" ref={email} />
+                <Form.Control className="form-input" type="password" placeholder="New Password" ref={password} />
+
+                <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
+                  Sign Up
+                </Button>
+              </Form>
             )}
           </div>
         </div>
