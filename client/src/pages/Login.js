@@ -1,43 +1,35 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import Auth from '../utils/auth';
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ usernmame: '', password: '' });
+  const username = useRef();
+  const password = useRef();
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
   // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
     try {
       const { data } = await login({
-        variables: { ...formState },
+        variables: { 
+          username: username.current?.value, 
+          password: password.current?.value 
+        },
       });
+      console.log(data)
 
-      Auth.login(data.login.token);
+      // Auth.login(data.login.token);
     } catch (e) {
+      console.log(error)
       console.error(e);
     }
-
-    // clear form values
-    setFormState({
-      username: '',
-      password: '',
-    });
   };
 
   return (
@@ -52,37 +44,13 @@ const Login = (props) => {
                 <Link to="/home">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="username"
-                  value={formState.username}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
+              <Form>
+                <Form.Control className="form-input" type="text" placeholder="Your username" ref={ username } />
+                <Form.Control className="form-input" type="password" placeholder="******" ref={ password } />
+                <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={ handleFormSubmit }>
+                  Login
+                </Button>
+              </Form>
             )}
           </div>
         </div>
