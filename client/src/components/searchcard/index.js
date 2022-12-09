@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import API from '../../utils/API';
 import { useState, useEffect, useRef } from 'react';
+import { redirect } from "react-router-dom";
 
 function SearchCard() {
 
@@ -38,12 +39,24 @@ function SearchCard() {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         // pull current versions of both refs
-        const searchResult = await searchNPS(activity.current?.value);
-        const userLatLon = await getUserLocation(location.current?.value);
-        console.log(searchResult, userLatLon);
-        // call searchNPS and mapquest GEOLOCATION
-        // verify that all inputs are good, 
-        // redirect the user to the results page, and pass the api responses to that other page
+        if (!activity.current?.value || !location.current?.value) {
+            console.log('Search activity or location blank')
+
+        } else if (activity.current?.value === "Nothing Selected") {
+            console.log('Nothing selected selected, please make a selection')
+
+        } else {
+            const searchResult = await searchNPS(activity.current?.value);
+            const userLatLon = await getUserLocation(location.current?.value);
+            console.log(searchResult, userLatLon);
+            if (searchResult && userLatLon) {
+                console.log('redirect to results');
+                redirect("/search");
+                // redirect the user to the results page, and pass the api responses to that other page
+            }
+            activity.current.value = 'Nothing Selected';
+            location.current.value = '';
+        }
     }
 
     useEffect(() => {
