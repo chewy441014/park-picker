@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import "./style.css"
 
-function ResultCard() {
+
+function ResultCard({ route }) {
+    const { search, userLatLon } = route.params;
+    console.log("=======================")
+    console.log(search)
+    console.log(userLatLon)
+
 
     const [searchResults, setSearchResult] = useState([])
 
@@ -35,10 +41,14 @@ function ResultCard() {
                                 <p>
                                     {data.description}
                                 </p>
-
+                                <p>
+                                    {/* {data.description} */}
+                                    distance: { }
+                                </p>
                             </div>
 
                         </div>)
+                        
                 }
 
             </div>

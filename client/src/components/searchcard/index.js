@@ -54,7 +54,7 @@ function SearchCard(props) {
                 console.log('redirect to results');
                 activity.current.value = 'Nothing Selected';
                 location.current.value = '';
-                navigate("/search", { replace: true }, {});
+                navigate("/search", { replace: true, search: searchResult, userLatLon: userLatLon });
                 // redirect the user to the results page, and pass the api responses to that other page
             }
         }
