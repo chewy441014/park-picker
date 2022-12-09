@@ -45,9 +45,12 @@ function findParksRelatedTo(searchTerm) {
 */
 
 async function npsSearch(query) {
+  // let's assign query is an array of strings of search terms
   try {
-    const response = await axios.get('https://developer.nps.gov/api/v1/parks?q=' + query + '&api_key=' + process.env.NPS_API);
-    console.log(response);
+    const params = {
+      searchList: query,
+    }
+    const response = await axios.get('/api/nps/search', null, { params });
     return response;
   } catch (err) {
     console.log(err);

@@ -7,16 +7,16 @@ const app = express();
 
 app.use('/nps', nps);
 /* 
- * /api/nps/getActivities
- * /api/nps/search
+ * /api/nps/getActivities - WORKING
+ * /api/nps/search - to do
  */
 app.use('/mapquest', mapquestRouter);
 /* 
- * /api/mapquest/geoLocation
+ * /api/mapquest/geoLocation - to do
  */
 app.use('/weather', weatherRouter);
 /* 
- * /api/weather/
+ * /api/weather/ - to do 
  */
 
 module.exports = app;
