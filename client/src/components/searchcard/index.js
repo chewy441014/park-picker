@@ -3,13 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import API from '../../utils/API';
 import { useState, useEffect, useRef } from 'react';
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function SearchCard() {
+function SearchCard(props) {
 
     const [activities, setActivities] = useState([]);
     const activity = useRef();
     const location = useRef();
+    const navigate = useNavigate();
 
     const getActivities = async () => {
         const response = await API.npsGetActivities();
@@ -51,11 +52,11 @@ function SearchCard() {
             console.log(searchResult, userLatLon);
             if (searchResult && userLatLon) {
                 console.log('redirect to results');
-                redirect("/search");
+                activity.current.value = 'Nothing Selected';
+                location.current.value = '';
+                navigate("/search", { replace: true }, {  });
                 // redirect the user to the results page, and pass the api responses to that other page
             }
-            activity.current.value = 'Nothing Selected';
-            location.current.value = '';
         }
     }
 
