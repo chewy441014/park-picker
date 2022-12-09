@@ -54,7 +54,7 @@ function SearchCard(props) {
                 console.log('redirect to results');
                 activity.current.value = 'Nothing Selected';
                 location.current.value = '';
-                navigate("/search", { replace: true }, {  });
+                navigate("/search", { replace: true }, {});
                 // redirect the user to the results page, and pass the api responses to that other page
             }
         }
@@ -80,12 +80,13 @@ function SearchCard(props) {
                     type="switch"
                     id="custom-switch"
                     label="Use current location."
+
                 />
                 <Form.Group className="mb-3" controlId="formLocationSearch">
                     <Form.Label>Enter your address below</Form.Label>
-                    <Form.Control type="text" placeholder="123 Fake St..." ref={ location }  />
+                    <Form.Control type="text" placeholder="123 Fake St..." ref={location} />
                 </Form.Group>
-                <Button variant="primary" type="button" onClick={ handleFormSubmit }>
+                <Button variant="primary" type="button" onClick={handleFormSubmit}>
                     Search
                 </Button>
             </Form>
