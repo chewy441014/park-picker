@@ -1,0 +1,18 @@
+.searchcard{
+    margin-top: 25px;
+    border: 2px solid black;
+    padding: 10px;
+    box-shadow: 2px 2px darkgreen, -0.5em 0 .5em olive;
+    border-radius: 15px;
+}
+.searchContainer{
+    margin: 20px;
+}
+
+.searchAgain{
+margin-top: 20px;
+margin-left: auto;
+border-radius: 15px;
+
+}
+
