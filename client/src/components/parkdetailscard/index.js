@@ -1,10 +1,24 @@
 import React from 'react';
 import Weather from '../weather';
 import Map from '../map';
+import API from '../../utils/API.js';
+import { useNavigate } from "react-router-dom";
 
 function ParkDetailsCard(props) {
 
-    console.log(props)
+    const navigate = useNavigate();
+    const searchResults = props.data.result.data;
+    const userLatLon = props.data.location;
+    const parkId = props.data.id;
+    // console.log(props)
+    // console.log(searchResults);
+    // console.log(userLatLon);
+    // console.log(parkId);
+
+    const parkData = searchResults.filter((elem) => elem.id === parkId )[0];
+
+    // console.log(parkData)
+
     return (
         <div>
             <header>

@@ -35,12 +35,20 @@ function ResultCard(props) {
     const navigate = useNavigate();
     const searchResults = props.data.result.data;
     const userLatLon = props.data.location;
+    const parkId = props.data.id;
 
     sortParkData(searchResults, userLatLon);
 
     const handleGetDetails = (event) => {
         event.preventDefault();
-        console.log("clicked")
+        let level = event.target.getAttribute("data-level");
+        let parent;
+        if (level === "2") {
+            parent = event.target.parentElement.parentElement.getAttribute("data-id")
+        } else if (level === "1") {
+            parent = event.target.parentElement.getAttribute("data-id")
+        }
+        props.data.setPark(parent);
         navigate("/park-details");
     }
 
@@ -55,22 +63,22 @@ function ResultCard(props) {
             <div className='searchContainer'>
                 {
                     searchResults.slice(0, 10).map((data) =>
-                        <div key={data.id} onClick={handleGetDetails}>
-                            <div className='searchcard'>
-                                <h2>
+                        <div data-id={data.id} onClick={handleGetDetails} data-level="0" key={data.id}>
+                            <div className='searchcard' data-level="1">
+                                <h2 data-level="2">
                                     {data.fullName}
                                 </h2>
-                                <h5>
+                                <h5 data-level="2">
                                     {data.addresses[0].stateCode
                                     }
                                 </h5>
-                                <p>
+                                <p data-level="2">
                                     {data.description.slice(0, 200) + '...'}
                                 </p>
-                                <p>
+                                <p data-level="2">
                                     {/* {data.description} */}
                                     Distance: {data.distance} mi.
-                                </p>
+                                </p >
                             </div>
                         </div>)
                 }
