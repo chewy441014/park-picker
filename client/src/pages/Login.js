@@ -33,30 +33,58 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+<div className="flex-row justify-center mb-4">
+       <h2 className="card-header text-center p-2">Login</h2>
+       <div className="card-body">
             {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/home">back to the homepage.</Link>
               </p>
-            ) : (
-              <Form>
-                <Form.Control className="form-input" type="text" placeholder="Your username" ref={ username } />
-                <Form.Control className="form-input" type="password" placeholder="******" ref={ password } />
-                <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={ handleFormSubmit }>
-                  Login
-                </Button>
-              </Form>
-            )}
-          </div>
-        </div>
-      </div>
-    </main>
+       ) : (
+      <Form>
+      
+         <Form.Group className="">
+        <Form.Label>Username</Form.Label>
+         <Form.Control className="form-input" type="text" placeholder="Your username" ref={ username } />
+          </Form.Group>  
+          <Form.Group className="">
+        <Form.Label>Password</Form.Label>
+         <Form.Control className="form-input" type="password" placeholder="******" ref={ password } />
+          </Form.Group> 
+          <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
+                 Login
+                 </Button>
+      </Form>
+       )}
+  </div>
+    </div>
   );
 };
+    // <main className="flex-row justify-center mb-4">
+    //   <div className="col-12 col-lg-10">
+    //     <div className="card">
+    //       <h4 className="card-header bg-dark text-light p-2">Login</h4>
+    //       <div className="card-body">
+    //         {data ? (
+    //           <p>
+    //             Success! You may now head{' '}
+    //             <Link to="/home">back to the homepage.</Link>
+    //           </p>
+    //         ) : (
+    //           <Form>
+    //             <Form.Control className="form-input" type="text" placeholder="Your username" ref={ username } />
+    //             <Form.Control className="form-input" type="password" placeholder="******" ref={ password } />
+    //             <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={ handleFormSubmit }>
+    //               Login
+    //             </Button>
+    //           </Form>
+    //         )}
+    //       </div>
+    //     </div>
+    //   </div>
+    // </main>
+//   );
+// };
 
 export default Login;
