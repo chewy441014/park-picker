@@ -75,7 +75,7 @@ function App() {
                 element={<Signup />}
               />
               <Route
-                path="/userdash"
+                path="/profile"
                 element={<Profile />}
               />
               {/* pass props to search setup */}
