@@ -10,10 +10,14 @@ function ParkDetailsCard(props) {
     const searchResults = props.data.result.data;
     const userLatLon = props.data.location;
     const parkId = props.data.id;
-    console.log(props)
-    console.log(searchResults);
-    console.log(userLatLon);
-    console.log(parkId);
+    // console.log(props)
+    // console.log(searchResults);
+    // console.log(userLatLon);
+    // console.log(parkId);
+
+    const parkData = searchResults.filter((elem) => elem.id === parkId )[0];
+
+    // console.log(parkData)
 
     return (
         <div>
