@@ -16,6 +16,7 @@ import Profile from './pages/Profile';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Results from './pages/Results';
+import ParkDetails from './components/parkdetailscard';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -81,6 +82,10 @@ function App() {
               <Route
                 path="/search"
                 element={<Results data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} } />}
+              />
+              <Route 
+                path="/park-details"
+                element={<ParkDetails data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} } />}
               />
               <Route
                 path="*"
