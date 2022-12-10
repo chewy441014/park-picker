@@ -1,5 +1,12 @@
 import React from "react";
 import WeatherCard from "../weathercard";
+import API from '../../utils/API.js';
+
+const getWeather = async (gpsCoords) => {
+  // expects gpsCoords = {lat: 12.123131, lng: 234242}
+  const response = await API.weather(gpsCoords);
+  return response;
+}
 
 function Weather() {
   return (
