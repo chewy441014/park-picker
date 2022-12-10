@@ -78,7 +78,7 @@ function SearchCard(props) {
                     <Form.Label>Enter your address below</Form.Label>
                     <Form.Control type="text" placeholder="123 Fake St..." ref={location} />
                 </Form.Group>
-                <Button variant="primary" type="button" onClick={ handleFormSubmit }>
+                <Button variant="primary" type="button" onClick={handleFormSubmit}>
                     Search
                 </Button>
             </Form>

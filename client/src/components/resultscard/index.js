@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios"
 import "./style.css"
 
 function ResultCard(props) {
+    console.log("props")
     console.log(props)
-
-    const [searchResults, setSearchResult] = useState([])
+    const searchResults = props.data.result.data
+    console.log(searchResults[0].url)
+    // const [searchResults, setSearchResult] = useState([])
 
     return (
         <div >
@@ -33,7 +34,7 @@ function ResultCard(props) {
                                     distance: { }
                                 </p>
                             </div>
-                        </div>)   
+                        </div>)
                 }
             </div>
         </div>
