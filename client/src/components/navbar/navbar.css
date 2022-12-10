@@ -1,4 +1,7 @@
-/* @import url('../../assets/fonts/NationalPark-SemiBold.woff'); */
+@font-face {
+  font-family: 'NationalPark-SemiBold';
+  src: local('NationalPark-Semibold'), url(../../assets/fonts/NationalPark-SemiBold.woff) format('woff');
+}  
  
 
 .right {
@@ -12,6 +15,6 @@
   
 }
 
-/* .nav-font {
+.nav-font {
   font-family: 'NationalPark-Semibold';
-} */
+}
