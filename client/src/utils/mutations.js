@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TRIP = gql`
-  mutation addTrip($userQuery: String!, $userSearch: String!, $createdAt: String) {
-    addTrip($userQuery: String!, $userSearch: String!, $createdAt: String) {
+  mutation addTrip($userQuery: String!, $userSearch: String!) {
+    addTrip(userQuery: $userQuery, userSearch: $userSearch) {
       token
       _id
       userQuery
