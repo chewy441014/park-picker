@@ -20,7 +20,7 @@ const Navbars = () => {
       {/* <Navbar className="d-flex justify-content-between" bg="dark" variant="dark"> */}
       <Navbar className="d-flex justify-content-between nav-font" bg="warning" variant="secondary">
         <Container className="">
-          <Navbar.Brand href="/home">Park Picker</Navbar.Brand>
+          <Navbar.Brand href="/home" id="nav-brand-font">Park Picker</Navbar.Brand>
           <Nav className="ml-5">
             {!Auth.loggedIn() ? (
             <>
