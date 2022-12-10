@@ -2,7 +2,9 @@ import React from 'react';
 import Weather from '../weather';
 import Map from '../map';
 
-function ParkDetailsCard() {
+function ParkDetailsCard(props) {
+
+    console.log(props)
     return (
         <div>
             <header>
