@@ -5,6 +5,9 @@ import { ADD_USER } from '../utils/mutations';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 const Signup = (props) => {
   const firstName = useRef();
@@ -49,30 +52,47 @@ const Signup = (props) => {
               </p>
        ) : (
       <Form>
-      
-         <Form.Group className="">
-        <Form.Label>First Name</Form.Label>
-         <Form.Control className="form-input" type="text" placeholder="Enter First Name" ref={firstName} />
-          </Form.Group>  
-          <Form.Group className="">
-        <Form.Label>Last Name</Form.Label>
-         <Form.Control className="form-input" type="text" placeholder="Enter Last Name" ref={lastName} />
-          </Form.Group> 
-          <Form.Group className="">
-        <Form.Label>Username</Form.Label>
-         <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
-          </Form.Group>  
-          <Form.Group className="">
-        <Form.Label>Email address</Form.Label>
-         <Form.Control className="form-input" type="text" placeholder="Enter Email" ref={email} />
-          </Form.Group> 
-          <Form.Group className="">
-        <Form.Label>New Password</Form.Label>
-         <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
-          </Form.Group> 
+        <Row className="g-3">
+          <Col md>
+        <FloatingLabel className="">
+            <Form.Control className="form-input" type="text" placeholder="Enter First Name" ref={firstName} />
+              <label>
+                First Name
+              </label>
+              </FloatingLabel> 
+
+              <FloatingLabel className="">
+            <Form.Control className="form-input" type="text" placeholder="Enter Last Name" ref={lastName} />
+              <label>
+                Last Name
+              </label>
+              </FloatingLabel>
+
+              <FloatingLabel className="">
+            <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
+              <label>
+                Username
+              </label>
+              </FloatingLabel>  
+            </Col>
+        </Row>  
+        <FloatingLabel className="">
+            <Form.Control className="form-input" type="text" placeholder="Enter Email" ref={email} />
+              <label>
+                Email address
+              </label>
+              </FloatingLabel> 
+
+        <FloatingLabel className="">
+            <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
+              <label>
+                New Password
+              </label>
+              </FloatingLabel>
+
           <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                    Sign Up
-                 </Button>
+          </Button>
       </Form>
        )}
   </div>
