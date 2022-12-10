@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate } from "react-router-dom";
 import "./style.css"
 
 // get distance between two lat and lon coordinate pairs in miles
@@ -32,6 +32,7 @@ function sortParkData(completeResponse, userLatLon) {
 
 function ResultCard(props) {
 
+    const navigate = useNavigate();
     const searchResults = props.data.result.data;
     const userLatLon = props.data.location;
 
@@ -40,7 +41,7 @@ function ResultCard(props) {
     const handleGetDetails = (event) => {
         event.preventDefault();
         console.log("clicked")
-
+        navigate("/park-details");
     }
 
     return (
