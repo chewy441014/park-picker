@@ -2,6 +2,11 @@
   font-family: 'NationalPark-SemiBold';
   src: local('NationalPark-Semibold'), url(../../assets/fonts/NationalPark-SemiBold.woff) format('woff');
 }  
+
+@font-face {
+  font-family: 'NationalPark-Extrabold';
+  src: local('NationalPark-Extrabold'), url(../../assets/fonts/NationalPark-ExtraBold.woff) format('woff');
+}  
  
 
 .right {
@@ -13,6 +18,10 @@
   margin-right: 0;
   
   
+}
+
+#nav-brand-font {
+  font-family: 'NationalPark-Extrabold';
 }
 
 .nav-font {
