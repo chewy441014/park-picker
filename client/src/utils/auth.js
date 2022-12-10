@@ -34,7 +34,8 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.reload();
+    // logging out sends the user to the homepage
+    window.location.assign('/home');
   }
 }
 
