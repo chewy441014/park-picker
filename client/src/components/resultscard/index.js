@@ -87,4 +87,5 @@ function ResultCard(props) {
     );
 }
 
+
 export default ResultCard;

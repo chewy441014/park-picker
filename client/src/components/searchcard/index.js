@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import API from '../../utils/API';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
+import "./style.css"
 
 function SearchCard(props) {
     const [activities, setActivities] = useState([]);
@@ -60,25 +61,25 @@ function SearchCard(props) {
 
     return (
         <div>
-            <Form>
+            <Form className="mb-3">
                 <Form.Group className="mb-3" controlId="formActivityList" >
-                    <Form.Label className='d-flex justify-content-center'><h4>Select park activities:</h4></Form.Label>
-                    <Form.Select ref={activity} >
+                    <Form.Label className='d-flex justify-content-center mt-3'><h4>Select park activities:</h4></Form.Label>
+                    <Form.Select ref={activity} className="squaredThree hoverEffect" >
                         {activities.map((elem, index) =>
                             <option key={index}> {elem} </option>
                         )}
                     </Form.Select>
                 </Form.Group>
-                <Form.Check
+                <Form.Check className=""
                     type="switch"
                     id="custom-switch"
                     label="Use current location."
                 />
                 <Form.Group className="mb-3" controlId="formLocationSearch">
                     <Form.Label>Enter your address below</Form.Label>
-                    <Form.Control type="text" placeholder="123 Fake St..." ref={location} />
+                    <Form.Control className="hoverEffect" type="text" placeholder="123 Fake St..." ref={location} />
                 </Form.Group>
-                <Button variant="primary" type="button" onClick={ handleFormSubmit }>
+                <Button className="searchB mb-3" type="button" onClick={handleFormSubmit}>
                     Search
                 </Button>
             </Form>
