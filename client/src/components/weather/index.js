@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeatherCard from "../weathercard";
 import API from '../../utils/API.js';
+import "./style.css"
 
 function Weather(props) {
 
@@ -36,7 +37,7 @@ function Weather(props) {
   }
 
   return (
-    <div>
+    <div className="Weather-card">
       {/* {(() => {
         if (weather) {
           weather.map((day) => {
@@ -57,8 +58,6 @@ function Weather(props) {
           <WeatherCard weather={day} key={day.ts} />
         ))
       }
-
-
     </div>
   );
 }

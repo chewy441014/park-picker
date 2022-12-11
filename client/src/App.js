@@ -64,7 +64,7 @@ function App() {
             <Routes>
               <Route
                 path="/home"
-                element={<Home data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} }/>}
+                element={<Home data={{ location: location, result: searchResult, setLocation: setLocation, setSearchResult: setSearchResult }} />}
               />
               {/* Add additional routes */}
               <Route
@@ -76,17 +76,17 @@ function App() {
                 element={<Signup />}
               />
               <Route
-                path="/profile"
+                path="/userdash"
                 element={<Profile />}
               />
               {/* pass props to search setup */}
               <Route
                 path="/search"
-                element={<Results data={ {location: location, result:searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult} } />}
+                element={<Results data={{ location: location, result: searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult }} />}
               />
-              <Route 
+              <Route
                 path="/park-details"
-                element={<ParkDetails data={ {location: location, result:searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult} } />}
+                element={<ParkDetails data={{ location: location, result: searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult }} />}
               />
               <Route
                 path="*"
