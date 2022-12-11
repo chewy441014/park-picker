@@ -18,21 +18,21 @@ const Navbars = () => {
   return (
     <>
       {/* <Navbar className="d-flex justify-content-between" bg="dark" variant="dark"> */}
-      <Navbar className="d-flex justify-content-between nav-font" bg="warning" variant="secondary">
+      <Navbar className="d-flex justify-content-between nav-font pt-2 pb-3" bg="warning" variant="secondary">
         <Container className="">
-          <Navbar.Brand href="/home" id="nav-brand-font">Park Picker</Navbar.Brand>
+          <Navbar.Brand href="/home" id="nav-brand-font">Park <span className="picker">Picker</span></Navbar.Brand>
           <Nav className="ml-5">
             {!Auth.loggedIn() ? (
-            <>
-            <Nav.Link href="/signup">Sign Up</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            </>
+              <>
+                <Nav.Link href="/signup">Sign Up</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+              </>
             ) : (
-            <>
-            <span className="nav-link">Hi, {Auth.getProfile().data.firstName}!</span>
-            <Nav.Link href="/userdash">User Dashboard</Nav.Link>
-            <Nav.Link onClick={(event) => logout(event) }>Logout</Nav.Link>
-            </>
+              <>
+                <span className="nav-link">Hi, {Auth.getProfile().data.firstName}!</span>
+                <Nav.Link href="/userdash">User Dashboard</Nav.Link>
+                <Nav.Link onClick={(event) => logout(event)}>Logout</Nav.Link>
+              </>
             )}
           </Nav>
         </Container>

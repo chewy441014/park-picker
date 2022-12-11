@@ -17,13 +17,19 @@
   margin-left: 0;
   margin-right: 0;
   
-  
 }
 
 #nav-brand-font {
   font-family: 'NationalPark-Extrabold';
+  
 }
 
 .nav-font {
   font-family: 'NationalPark-Semibold';
+  box-shadow: 5px 5px 5px gray;
+
+}
+
+.picker{
+  color: white;
 }
