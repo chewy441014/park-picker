@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
-import Login from './Login';
+
 
 const Signup = (props) => {
   const firstName = useRef();
