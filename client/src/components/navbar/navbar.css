@@ -13,6 +13,9 @@
   background-color: red;
 }
 
+.navbar{
+  background: linear-gradient(to top, #FFC106, rgb(231, 220, 179));
+}
 .nav-custom {
   margin-left: 0;
   margin-right: 0;
@@ -33,3 +36,4 @@
 .picker{
   color: white;
 }
+

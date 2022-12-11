@@ -44,7 +44,7 @@ const Signup = (props) => {
 
   return (
 
-    <div className="flex-row justify-center mb-4">
+    <div className="flex-row justify-center mb-4 mt-4">
       <h2 className="card-header text-center p-2">Sign Up</h2>
       <div className="card-body">
         {data ? (

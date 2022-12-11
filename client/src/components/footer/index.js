@@ -6,9 +6,9 @@ function Footer() {
   return (
     <footer className="d-flex flex-column align-items-center bg-dark mt-5">
       <div className="d-flex flex-column align-items-center">
- footerStylingV3
+ {/* footerStylingV3 */}
         <div className="githubIcon">
-        <h5 className="text-white mx-1 mg">Contributors <a href="https://github.com/chewy441014/park-picker" target="_blank" rel="noopener noreferrer"><img src={GithubIcon} alt="github-repo" width={35}/></a></h5>
+        <h6 className="text-white mx-1 mg">Contributors <a href="https://github.com/chewy441014/park-picker" target="_blank" rel="noopener noreferrer"><img src={GithubIcon} alt="github-repo" width={35}/></a></h6>
         </div>
         <ul className="nav d-flex flex-row mt-2">
           <li className="nav-item mb-2 mx-1"><a href="https://www.linkedin.com/in/david-codner-008483251/" target="_blank" rel="noopener noreferrer" className="nav-link p-0 text-body">David Codner</a></li>
@@ -20,7 +20,7 @@ function Footer() {
       </div>
 
       <div className="d-flex flex-column align-items-center">
-        <p className="text-white mb-0 mt-0">Made With 💖 & React (Copyright © 2022)</p>
+        <p className="copyRight text-white mb-0 mt-0">Made With 💖 & React (Copyright © 2022)</p>
         <p className="text-muted mt-0"></p>
       </div>
 
