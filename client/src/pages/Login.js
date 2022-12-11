@@ -5,8 +5,8 @@ import { LOGIN_USER } from '../utils/mutations';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 const Login = (props) => {
@@ -63,6 +63,11 @@ const Login = (props) => {
                  </Button>
       </Form>
        )}
+        {error && (
+              <div className="my-3 p-3 text-danger">
+                {error.message}
+              </div>
+            )}
   </div>
     </div>
   );
