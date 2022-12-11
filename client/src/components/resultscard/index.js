@@ -65,6 +65,7 @@ function ResultCard(props) {
                     searchResults.slice(0, 10).map((data) =>
                         <div data-id={data.id} onClick={handleGetDetails} data-level="0" key={data.id}>
                             <div className='searchcard' data-level="1">
+                            
                                 <h2 data-level="2">
                                     {data.fullName}
                                 </h2>

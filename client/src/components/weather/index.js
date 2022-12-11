@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeatherCard from "../weathercard";
 import API from '../../utils/API.js';
+import "./style.css"
 
 function Weather(props) {
 
@@ -36,29 +37,12 @@ function Weather(props) {
   }
 
   return (
-    <div>
-      {/* {(() => {
-        if (weather) {
-          weather.map((day) => {
-            console.log('iterating the correct way');
-            return<WeatherCard weather={day} key={day} />
-          })
-        } else {
-          // fill with default data
-          console.log('------entering for loop--------------')
-          for (let i = 0; i < 5; i++) {
-            console.log('show weather card');
-            <WeatherCard key={i}/>
-          }
-        }
-      })()} */}
+    <div className="Weather-card">
       {weather &&
         weather.map((day) => (
           <WeatherCard weather={day} key={day.ts} />
         ))
       }
-
-
     </div>
   );
 }

@@ -4,39 +4,31 @@
     width: 100%;
     box-shadow: 5px 5px 5px gray;
     border-color: gray !important;
+    font-weight: bold;
 }
 
-.hoverEffect::content {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #f3969a;
-}
 .hoverEffect:hover{
     text-decoration: none;
-    background-color: #FFC107;
+    background-color: #f6e8c0;
 }
-.hoverEffect:focus{
-    text-decoration: none;
-    background-color: #FFC107;
 
-}
 .hoverEffect option:hover {
-    background-color: #FFC107;
-
-}
-
-.hoverEffect:active{
-    background-color: #FFC107;
+    background-color: #f6e8c0;
 
 }
 
 .form-check-input:hover{
-    background-color: #FFC107;;
+    background-color: #f6e8c0;;
 }
-.form-check-input::after{
-    background-color: #FFC107;;
-}
+.hoverEffect:active{
+    background-color: #f6e8c0;
 
+}
+.hoverEffect:focus{
+    background-color: #f6e8c0  !important;
+
+
+}
 
 
 
