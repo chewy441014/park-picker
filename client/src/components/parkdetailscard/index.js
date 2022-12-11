@@ -43,7 +43,7 @@ function ParkDetailsCard(props) {
                             {parkData.description}
                         </div>
                         <div>
-                            <a className='urlstyle' href={parkData.url} alt={parkData.url} target="_blank">Park Website</a>
+                            <a className='' href={parkData.url} alt={parkData.url} target="_blank">Park Website</a>
                             <a className='urlstyle' href={allactivities} alt={allactivities} target="_blank">All Activities  </a>
 
                         </div>
