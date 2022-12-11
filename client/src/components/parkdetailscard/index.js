@@ -1,12 +1,11 @@
 import React from 'react';
 import Weather from '../weather';
 import Map from '../map';
-import API from '../../utils/API.js';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function ParkDetailsCard(props) {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const searchResults = props.data.result.data;
     const userLatLon = props.data.location;
     const parkId = props.data.id;
@@ -17,34 +16,32 @@ function ParkDetailsCard(props) {
 
     const parkData = searchResults.filter((elem) => elem.id === parkId )[0];
 
-    // console.log(parkData)
+    console.log(parkData)
 
     return (
         <div>
             <header>
-                <h1 id="park-name">Default Park Name, Get it from the API</h1>
+                <h1 id="park-name">{parkData.fullName}</h1>
                 <button></button>
             </header>
             <div>
                 <div className="column is-justify-content-center" id="park-desc">
                     {/* Default park description, get it from the API call */}
-                    <p>sample saplme sample sample</p>
+                    {parkData.description}
                 </div>
             </div>
             <div>
                 <div id="park-details">
                     {/* Default park image, get it from the API call */}
-                    <p>sample saplme sample sample</p>
+                    <img src={parkData.images[0].url} alt={parkData.images[0].altText} />
                 </div>
                 <div id="map-parent">
                     {/* Default Map location, import subcomponent */}
-                    <p>sample saplme sample sample</p>
-                    <Map />
+                    <Map coords={ [{lat: parkData.latitude, lng: parkData.longitude}, userLatLon] } />
                 </div>
             </div>
             <div id="weather">
                 {/* Default weather location, import subcomponent */}
-                <p>sample saplme sample sample</p>
                 <Weather coord={ {lat: parkData.latitude, lng: parkData.longitude} } />
             </div>
         </div>
