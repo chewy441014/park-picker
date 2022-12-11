@@ -1,0 +1,26 @@
+.row {
+    display: flex;
+    border: 1px solid rgba(128, 128, 128, 0.66);
+    background-color: white;
+    border-radius: 20px;
+    width: 950px !important;
+    margin-top: -10px !important;
+    margin-bottom: -10px !important;
+    margin-left: -145px !important;
+
+  }
+  
+  .column1 {
+    flex: 30%;
+    margin-top: 40px !important;
+  }
+  .column2 {
+    flex: 69%;
+    margin-top: 25px !important;
+
+  }
+
+
+.Weather-card{
+
+}

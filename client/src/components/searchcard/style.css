@@ -6,34 +6,17 @@
     border-color: gray !important;
 }
 
-.hoverEffect::content {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #f3969a;
-}
 .hoverEffect:hover{
     text-decoration: none;
     background-color: #FFC107;
 }
-.hoverEffect:focus{
-    text-decoration: none;
-    background-color: #FFC107;
 
-}
 .hoverEffect option:hover {
     background-color: #FFC107;
 
 }
 
-.hoverEffect:active{
-    background-color: #FFC107;
-
-}
-
 .form-check-input:hover{
-    background-color: #FFC107;;
-}
-.form-check-input::after{
     background-color: #FFC107;;
 }
 
