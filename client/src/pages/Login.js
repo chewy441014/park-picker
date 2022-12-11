@@ -34,7 +34,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="flex-row justify-center mb-4">
+    <div className="flex-row justify-center mb-4 mt-4">
       <h2 className="card-header text-center p-2">Login</h2>
       <div className="card-body">
         {data ? (
