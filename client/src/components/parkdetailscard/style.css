@@ -1,5 +1,4 @@
 .rowDetails {
-    display: flex;
     border: 1px solid rgba(128, 128, 128, 0.66);
     background-color: white;
     border-radius: 20px;
@@ -9,10 +8,14 @@
     margin-left: -145px !important;
 
   }
-  
+  .detailrow{
+    display: flex;
+
+  } 
   .column1 {
     flex: 30%;
     margin-top: 40px !important;
+    margin-left: 7px;
   }
   .column2 {
     flex: 69%;
