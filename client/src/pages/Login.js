@@ -46,16 +46,16 @@ const Login = (props) => {
        ) : (
       <Form>
       
-      <FloatingLabel className="md-3">
+      <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
               <label>
                 Username
               </label>
               </FloatingLabel>  
-              <FloatingLabel className="">
+              <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
               <label>
-                New Password
+                Password
               </label>
               </FloatingLabel>
           <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
