@@ -1,3 +1,8 @@
+
+img {
+    max-width: 300px;
+}
+
 .rowDetails {
     border: 1px solid rgba(128, 128, 128, 0.66);
     background-color: white;
@@ -22,4 +27,3 @@
     margin-top: 25px !important;
 
   }
-
