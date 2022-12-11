@@ -52,6 +52,7 @@ function App() {
 
   const [searchResult, setSearchResult] = useState();
   const [location, setLocation] = useState();
+  const [parkId, setParkId] = useState();
 
   return (
     <ApolloProvider client={client}>
@@ -81,11 +82,11 @@ function App() {
               {/* pass props to search setup */}
               <Route
                 path="/search"
-                element={<Results data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} } />}
+                element={<Results data={ {location: location, result:searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult} } />}
               />
               <Route 
                 path="/park-details"
-                element={<ParkDetails data={ {location: location, result:searchResult, setLocation: setLocation, setSearchResult: setSearchResult} } />}
+                element={<ParkDetails data={ {location: location, result:searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult} } />}
               />
               <Route
                 path="*"

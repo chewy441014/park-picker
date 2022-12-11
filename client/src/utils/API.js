@@ -86,9 +86,11 @@ function getForecast(userLocation) {
 */
 
 async function weather(query) {
+  // expects query to be {lat: 23.112, lng: 12313}
   try {
     const params = {
-      city: query,
+      lat: query.lat,
+      lng: query.lng
     }
     const response = await axios.get('/api/weather', { params });
     return response.data;
