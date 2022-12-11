@@ -54,21 +54,23 @@ const Signup = (props) => {
       <Form>
         <Row className="g-3">
           <Col md>
-        <FloatingLabel className="">
+        <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="text" placeholder="Enter First Name" ref={firstName} />
               <label>
                 First Name
               </label>
               </FloatingLabel> 
-
-              <FloatingLabel className="">
+              </Col>
+              <Col>
+              <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="text" placeholder="Enter Last Name" ref={lastName} />
               <label>
                 Last Name
               </label>
               </FloatingLabel>
-
-              <FloatingLabel className="">
+              </Col>
+              <Col>
+              <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
               <label>
                 Username
@@ -76,14 +78,14 @@ const Signup = (props) => {
               </FloatingLabel>  
             </Col>
         </Row>  
-        <FloatingLabel className="">
+        <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="text" placeholder="Enter Email" ref={email} />
               <label>
                 Email address
               </label>
               </FloatingLabel> 
 
-        <FloatingLabel className="">
+        <FloatingLabel className="mb-3">
             <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
               <label>
                 New Password
