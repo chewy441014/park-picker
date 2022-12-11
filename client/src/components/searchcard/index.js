@@ -42,9 +42,7 @@ function SearchCard(props) {
         } else {
             const searchResult = await searchNPS(activity.current?.value);
             const userLatLon = await getUserLocation(location.current?.value);
-            console.log(searchResult, userLatLon);
             if (searchResult && userLatLon) {
-                console.log('redirect to results');
                 activity.current.value = 'Nothing Selected';
                 location.current.value = '';
                 props.data.data.setLocation(userLatLon);

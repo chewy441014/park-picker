@@ -28,20 +28,24 @@ function ParkDetailsCard(props) {
             <div>
                 <div className="column is-justify-content-center" id="park-desc">
                     {/* Default park description, get it from the API call */}
+                    <p>sample saplme sample sample</p>
                 </div>
             </div>
             <div>
                 <div id="park-details">
                     {/* Default park image, get it from the API call */}
+                    <p>sample saplme sample sample</p>
                 </div>
                 <div id="map-parent">
                     {/* Default Map location, import subcomponent */}
+                    <p>sample saplme sample sample</p>
                     <Map />
                 </div>
             </div>
             <div id="weather">
                 {/* Default weather location, import subcomponent */}
-                <Weather />
+                <p>sample saplme sample sample</p>
+                <Weather coord={ {lat: parkData.latitude, lng: parkData.longitude} } />
             </div>
         </div>
     );
