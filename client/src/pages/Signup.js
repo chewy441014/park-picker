@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
+
 const Signup = (props) => {
   const firstName = useRef();
   const lastName = useRef();
@@ -91,13 +92,20 @@ const Signup = (props) => {
                 New Password
               </label>
               </FloatingLabel>
+              
 
-          <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
+           <Button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                    Sign Up
           </Button>
       </Form>
+     
        )}
-  </div>
+        {error && (
+              <div className="my-3 p-3 text-danger">
+                {error.message}
+              </div>
+            )}
+       </div>
     </div>
   );
 };
