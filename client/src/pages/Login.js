@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
+import SignUp from './Signup';
 
 const Login = (props) => {
   const username = useRef();
@@ -61,6 +62,10 @@ const Login = (props) => {
           <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                  Login
                  </Button>
+                 <div className="justify-center mb-4 mt-4">
+                  Or <spin><a href="SignUp">Sign Up</a></spin>
+          </div>
+                
       </Form>
        )}
         {error && (

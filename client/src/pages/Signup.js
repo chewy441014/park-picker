@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
+import Login from './Login';
 
 const Signup = (props) => {
   const firstName = useRef();
@@ -99,6 +100,9 @@ const Signup = (props) => {
            <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                    Sign Up
           </Button>
+          <div className="justify-center mb-4 mt-4">
+                  Or <spin><a href="Login">Login</a></spin>
+          </div>
       </Form>
      
        )}
