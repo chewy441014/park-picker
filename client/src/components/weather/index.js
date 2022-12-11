@@ -30,7 +30,8 @@ function Weather(props) {
 
   const getWeather = async (gpsCoords) => {
     // expects gpsCoords = {lat: 12.123131, lng: 234242}
-    const response = await API.weather(gpsCoords);
+    // const response = await API.weather(gpsCoords);
+    const response = dWeather;
     setWeather(response.slice(0, 5));
   }
 
