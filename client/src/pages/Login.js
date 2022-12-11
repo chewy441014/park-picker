@@ -5,7 +5,6 @@ import { LOGIN_USER } from '../utils/mutations';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
-
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
 
@@ -57,13 +56,19 @@ const Login = (props) => {
               <label>
                 Password
               </label>
-            </FloatingLabel>
-            <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
-              Login
-            </Button>
-          </Form>
-        )}
-      </div>
+
+              </FloatingLabel>
+          <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
+                 Login
+                 </Button>
+      </Form>
+       )}
+        {error && (
+              <div className="my-3 p-3 text-danger">
+                {error.message}
+              </div>
+            )}
+  </div>
     </div>
   );
 };
