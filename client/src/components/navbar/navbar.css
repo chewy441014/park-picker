@@ -14,7 +14,7 @@
 }
 
 .navbar{
-  background: linear-gradient(to top, #FFC106, rgb(231, 220, 179));
+  background: linear-gradient(to right, #FFC106, #eecc69);
 }
 .nav-custom {
   margin-left: 0;
@@ -24,16 +24,18 @@
 
 #nav-brand-font {
   font-family: 'NationalPark-Extrabold';
-  
+  font-size: 35px;
+  text-transform: none;
 }
 
 .nav-font {
   font-family: 'NationalPark-Semibold';
   box-shadow: 0px 8px 10px gray;
-
+  text-transform: uppercase; 
 }
 
 .picker{
   color: white;
 }
+
 

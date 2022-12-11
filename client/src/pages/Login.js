@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
-import SignUp from './Signup';
+
 
 const Login = (props) => {
   const username = useRef();
@@ -44,6 +44,7 @@ const Login = (props) => {
             <Link to="/home">back to the homepage.</Link>
           </p>
         ) : (
+          <div class="formBackground">
           <Form>
 
             <FloatingLabel className="mb-3">
@@ -67,6 +68,7 @@ const Login = (props) => {
           </div>
                 
       </Form>
+      </div>
        )}
         {error && (
               <div className="my-3 p-3 text-danger">
