@@ -1,28 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import WeatherCard from "../weathercard";
 import API from '../../utils/API.js';
 
-const getWeather = async (gpsCoords) => {
-  // expects gpsCoords = {lat: 12.123131, lng: 234242}
-  const response = await API.weather(gpsCoords);
-  return response;
-}
+function Weather(props) {
 
-function Weather() {
+  // console.log(props)
+  const [weather, setWeather] = useState();
+
+  useEffect(() => {
+    getWeather(props.coord);
+  }, []);
+
+  const getWeather = async (gpsCoords) => {
+    // expects gpsCoords = {lat: 12.123131, lng: 234242}
+    const response = await API.weather(gpsCoords);
+    setWeather(response.slice(0, 5));
+  }
+
+  console.log(weather)
+
   return (
     <div>
-      {/* Using something similar to
-       * const numbers = [1, 2, 3, 4, 5];
-       * const listItems = numbers.map((number) =>
-       *   <li>{number}</li>
-       * );
-       * display five weather cards
-       * temporarily display five blank weather cards */}
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
+      {(() => {
+        if (weather) {
+          weather.map((day) => {
+            <WeatherCard weather={day} />
+          })
+        } else {
+          // fill with default data
+          console.log('------entering for loop--------------')
+          for (let i = 0; i < 5; i++) {
+            console.log('show weather card');
+            <WeatherCard />
+          }
+        }
+      })()}
+
     </div>
   );
 }

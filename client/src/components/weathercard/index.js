@@ -1,6 +1,8 @@
 import React from 'react';
 
-function WeatherCard() {
+function WeatherCard(props) {
+    console.log(props)
+    
     return (
         <div>
             <p>Temperature: <span id="temp"></span></p>

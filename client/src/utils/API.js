@@ -87,6 +87,7 @@ function getForecast(userLocation) {
 
 async function weather(query) {
   // expects query to be {lat: 23.112, lng: 12313}
+  // console.log(query)
   try {
     const params = {
       lat: query.lat,
