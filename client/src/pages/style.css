@@ -1,0 +1,8 @@
+.searchB{
+    background-color: #FFC107 !important;
+    color: black !important;
+    width: 100%;
+    box-shadow: 5px 5px 5px gray;
+    border-color: gray !important;
+    font-weight: bold;
+}

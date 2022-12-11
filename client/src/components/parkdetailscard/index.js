@@ -20,7 +20,7 @@ function ParkDetailsCard(props) {
     console.log(parkData)
 
     return (
-        <div className='container row'>
+        <div className='container rowse'>
             <div className='column1'>
                 <div id="park-details">
                     {/* Default park image, get it from the API call */}

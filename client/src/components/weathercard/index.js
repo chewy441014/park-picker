@@ -5,7 +5,7 @@ function WeatherCard(props) {
     const weather = props.weather;
 
     return (
-        <div className='card'>
+        <div className='detialcard'>
             <div className=''>
                 <p><span id="weatherIcon"><img className='weatherIcon' src={"https://www.weatherbit.io/static/img/icons/" + weather.weather.icon + ".png"} alt={weather.weather.description} /></span></p>
                 <p>Temperature: <span id="temp">{weather.high_temp}</span></p>
