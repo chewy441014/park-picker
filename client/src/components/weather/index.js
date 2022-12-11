@@ -9,7 +9,7 @@ function Weather(props) {
 
   useEffect(() => {
     getWeather(props.coord);
-  }, []);
+  }, [props]);
 
   const getWeather = async (gpsCoords) => {
     // expects gpsCoords = {lat: 12.123131, lng: 234242}
@@ -17,24 +17,30 @@ function Weather(props) {
     setWeather(response.slice(0, 5));
   }
 
-  console.log(weather)
-
   return (
     <div>
-      {(() => {
+      {/* {(() => {
         if (weather) {
           weather.map((day) => {
-            <WeatherCard weather={day} />
+            console.log('iterating the correct way');
+            return<WeatherCard weather={day} key={day} />
           })
         } else {
           // fill with default data
           console.log('------entering for loop--------------')
           for (let i = 0; i < 5; i++) {
             console.log('show weather card');
-            <WeatherCard />
+            <WeatherCard key={i}/>
           }
         }
-      })()}
+      })()} */}
+
+      {weather && 
+        weather.map((day) => (
+          <WeatherCard weather={day} key={day.ts} />
+        ))
+      }
+
 
     </div>
   );
