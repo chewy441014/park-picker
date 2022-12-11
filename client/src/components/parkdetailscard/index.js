@@ -1,22 +1,15 @@
 import React from 'react';
 import Weather from '../weather';
 import Map from '../map';
+import "./style.css"
 // import { useNavigate } from "react-router-dom";
 
 function ParkDetailsCard(props) {
 
-    // const navigate = useNavigate();
     const searchResults = props.data.result.data;
     const userLatLon = props.data.location;
     const parkId = props.data.id;
-    // console.log(props)
-    // console.log(searchResults);
-    // console.log(userLatLon);
-    // console.log(parkId);
-
     const parkData = searchResults.filter((elem) => elem.id === parkId )[0];
-
-    console.log(parkData)
 
     return (
         <div>
@@ -37,7 +30,7 @@ function ParkDetailsCard(props) {
                 </div>
                 <div id="map-parent">
                     {/* Default Map location, import subcomponent */}
-                    <Map coords={ [{lat: parkData.latitude, lng: parkData.longitude}, userLatLon] } />
+                    <Map coords={ [{lat: Number(parkData.latitude), lng: Number(parkData.longitude)}, userLatLon] } />
                 </div>
             </div>
             <div id="weather">

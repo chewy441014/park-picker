@@ -52,7 +52,6 @@ function Weather(props) {
           }
         }
       })()} */}
-      {console.log(weather)}
       {weather &&
         weather.map((day) => (
           <WeatherCard weather={day} key={day.ts} />
