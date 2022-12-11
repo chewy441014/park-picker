@@ -4,13 +4,22 @@ import Map from '../map';
 import "./style.css"
 // import { useNavigate } from "react-router-dom";
 import "./style.css"
+import { all } from 'axios';
 
 function ParkDetailsCard(props) {
 
     const searchResults = props.data.result.data;
     const userLatLon = props.data.location;
     const parkId = props.data.id;
-    const parkData = searchResults.filter((elem) => elem.id === parkId )[0];
+    const parkData = searchResults.filter((elem) => elem.id === parkId)[0];
+    console.log(searchResults)
+    console.log(parkData.directionsUrl)
+    let allactivities = parkData.directionsUrl.split("/")
+    let v = "http://www.nps.gov/chic/planyourvisit/directions.htm"
+    allactivities[5] = "things2do.htm"
+    allactivities = allactivities.join("/")
+
+
 
     return (
         <div className='container rowDetails'>
@@ -33,13 +42,18 @@ function ParkDetailsCard(props) {
                             {/* Default park description, get it from the API call */}
                             {parkData.description}
                         </div>
+                        <div>
+                            <a className='urlstyle' href={parkData.url} alt={parkData.url} target="_blank">Park Website</a>
+                            <a className='urlstyle' href={allactivities} alt={allactivities} target="_blank">All Activities  </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
             <div>
                 <div id="map-parent">
                     {/* Default Map location, import subcomponent */}
-                    <Map coords={ [{lat: Number(parkData.latitude), lng: Number(parkData.longitude)}, userLatLon] } />
+                    <Map coords={[{ lat: Number(parkData.latitude), lng: Number(parkData.longitude) }, userLatLon]} />
                 </div>
             </div>
             <div id="weather">

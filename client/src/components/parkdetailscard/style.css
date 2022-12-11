@@ -23,6 +23,7 @@ img {
     margin-left: 7px;
   }
   .column2 {
+    margin-left: 10px;
     flex: 69%;
     margin-top: 25px !important;
 
