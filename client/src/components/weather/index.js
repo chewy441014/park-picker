@@ -4,8 +4,25 @@ import API from '../../utils/API.js';
 
 function Weather(props) {
 
+  const wObj = () => {
+    return {
+      high_temp: '21',
+      wind_spd: '3',
+      rh: '89',
+      pop: '25',
+      weather: {
+        icon: 'c02d',
+        description: 'Its hot'
+      },
+      vis: '21',
+      ts: Math.random() * 100
+    }
+  }
+
+  const dWeather = [wObj(), wObj(), wObj(), wObj(), wObj()]
+
   // console.log(props)
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState(dWeather);
 
   useEffect(() => {
     getWeather(props.coord);
@@ -34,8 +51,8 @@ function Weather(props) {
           }
         }
       })()} */}
-
-      {weather && 
+      {console.log(weather)}
+      {weather &&
         weather.map((day) => (
           <WeatherCard weather={day} key={day.ts} />
         ))
