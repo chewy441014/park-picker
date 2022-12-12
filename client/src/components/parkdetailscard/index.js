@@ -4,7 +4,6 @@ import Map from '../map';
 import "./style.css"
 // import { useNavigate } from "react-router-dom";
 import "./style.css"
-import { all } from 'axios';
 
 function ParkDetailsCard(props) {
 
@@ -12,50 +11,45 @@ function ParkDetailsCard(props) {
     const userLatLon = props.data.location;
     const parkId = props.data.id;
     const parkData = searchResults.filter((elem) => elem.id === parkId)[0];
-    console.log(searchResults)
-    console.log(parkData.directionsUrl)
     let allactivities = parkData.directionsUrl.split("/")
-    let v = "http://www.nps.gov/chic/planyourvisit/directions.htm"
     allactivities[5] = "things2do.htm"
     allactivities = allactivities.join("/")
 
-
-
     return (
         <div className='container rowDetails'>
+
+            <header>
+                <h1 id="park-name">{parkData.fullName}</h1>
+
+            </header>
+            <div>
+                <div className="column is-justify-content-center" id="park-desc">
+                    {/* Default park description, get it from the API call */}
+                    {parkData.description}
+                </div>
+                <div>
+                    <a className='' href={parkData.url} alt={parkData.url} rel="noreferrer" target="_blank">Park Website</a>
+                    <a className='urlstyle' href={allactivities} alt={allactivities} rel="noreferrer" target="_blank">All Activities  </a>
+
+                </div>
+            </div>
             <div className="detailrow">
 
                 <div className='column1'>
                     <div id="park-details">
                         {/* Default park image, get it from the API call */}
-                        <img className='parkDimg' width={"230px"} height={"230px"} src={parkData.images[0].url} alt={parkData.images[0].altText} />
+                        <img className='parkDimg' width={"100%"} height={"300px"} src={parkData.images[0].url} alt={parkData.images[0].altText} />
                     </div>
                 </div>
-                <div className='column2'>
 
-                    <header>
-                        <h1 id="park-name">{parkData.fullName}</h1>
-
-                    </header>
-                    <div>
-                        <div className="column is-justify-content-center" id="park-desc">
-                            {/* Default park description, get it from the API call */}
-                            {parkData.description}
-                        </div>
-                        <div>
-                            <a className='' href={parkData.url} alt={parkData.url} target="_blank">Park Website</a>
-                            <a className='urlstyle' href={allactivities} alt={allactivities} target="_blank">All Activities  </a>
-
-                        </div>
+                <div className='column1'>
+                    <div id="map-parent">
+                        {/* Default Map location, import subcomponent */}
+                        <Map coords={[{ lat: Number(parkData.latitude), lng: Number(parkData.longitude) }, userLatLon]} />
                     </div>
                 </div>
             </div>
-            <div>
-                <div id="map-parent">
-                    {/* Default Map location, import subcomponent */}
-                    <Map coords={[{ lat: Number(parkData.latitude), lng: Number(parkData.longitude) }, userLatLon]} />
-                </div>
-            </div>
+
             <div id="weather">
                 {/* Default weather location, import subcomponent */}
                 <Weather coord={{ lat: parkData.latitude, lng: parkData.longitude }} />
