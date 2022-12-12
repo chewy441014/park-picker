@@ -54,17 +54,17 @@ function App() {
   const [location, setLocation] = useState();
   const [parkId, setParkId] = useState();
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
-    script.async = true;
-    const link = document.createElement('link');
-    link.href ="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
-    link.rel = "stylesheet"
-    link.type = "text/css"
-    document.head.appendChild(link)
-    document.body.appendChild(script);
-  }, []);
+  // useEffect(() => {
+    // const script = document.createElement('script');
+    // script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
+    // script.async = true;
+    // const link = document.createElement('link');
+    // link.href ="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
+    // link.rel = "stylesheet"
+    // link.type = "text/css"
+    // document.head.appendChild(link)
+    // document.body.appendChild(script);
+  // }, []);
 
   return (
     <ApolloProvider client={client}>
