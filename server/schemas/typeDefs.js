@@ -12,11 +12,10 @@ const typeDefs = gql`
   }
 
   type Trip {
-    searchId: ID
+    _id: ID
     searchQuery: String
     location: String
     username: String
-    createdAt: String
   }
 
   type Auth {
@@ -27,7 +26,7 @@ const typeDefs = gql`
   type Query {
     user(username: String!): User
     me: User
-    trip(searchId: ID!): Trip
+    trip(tripId: ID!): Trip
   }
 
   type Mutation {
@@ -38,7 +37,7 @@ const typeDefs = gql`
         email: String!, 
         password: String!): Auth,
     login(username: String!, password: String!): Auth,
-    addTrip(userQuery: String!, userSearch: String!, createdAt: String): Auth
+    addTrip(searchQuery: String!, location: String!, username: String!): Trip
   }
 `;
 

@@ -40,10 +40,11 @@ function ResultCard(props) {
     const userActivity = props.data.userActivity;
     const navigate = useNavigate();
     const searchResults = props.data.result.data;
-    console.log(props.data.result.data);
     const userLatLon = props.data.location;
     const parkId = props.data.id;
     sortParkData(searchResults, userLatLon);
+    
+    const [addTrip, { error }] = useMutation(ADD_TRIP);
 
     const handleGetDetails = (event) => {
         event.preventDefault();
@@ -58,9 +59,28 @@ function ResultCard(props) {
         navigate("/park-details");
     }
 
-    const handleSaveTrip = (e) => {
+    const handleSaveTrip = async (e) => {
         e.preventDefault();
+        
+    try {    
+        console.log(Auth.getProfile().data.username);
+        console.log(userActivity);
+        console.log(userCity);
+        console.log(Auth.getToken());
+        const { response } = await addTrip({
+            variables: {
+                
+                searchQuery: userActivity,
+                location: userCity,
+                username: Auth.getProfile().data.username
+            },
+        });
+        console.log(response);
+    } catch (e) {
+        console.error(e);
+        console.log(error);
     }
+};
 
     return (
         <div id="hidden-div">

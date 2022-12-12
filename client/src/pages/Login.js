@@ -36,7 +36,7 @@ const Login = (props) => {
 
   return (
 
-     <div class="formBackground">
+     <div className="formBackground">
     <div className="flex-row justify-center mb-4 mt-4">
       <h2 className="card-header text-center p-2 text-secondary">Login</h2>
       <div className="card-body">
@@ -51,13 +51,13 @@ const Login = (props) => {
 
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
-              <label class="text-secondary">
+              <label className="text-secondary">
                 Username
               </label>
             </FloatingLabel>
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
-              <label class="text-secondary">
+              <label className="text-secondary">
                 Password
               </label>
 
@@ -66,7 +66,7 @@ const Login = (props) => {
                  Login
                  </Button>
                  <div className="justify-center mb-4 mt-4 text-secondary">
-                  Need an account? <spin><a href="SignUp" class="text-secondary">Sign Up</a></spin>
+                  Need an account? <span><a href="SignUp" className="text-secondary">Sign Up</a></span>
           </div>
                 
       </Form>
