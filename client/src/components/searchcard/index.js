@@ -58,7 +58,7 @@ function SearchCard(props) {
     }, []);
 
     return (
-        <div>
+        <div >
             <Form className="mb-3">
                 <Form.Group className="mb-3" controlId="formActivityList" >
                     <Form.Label className='d-flex justify-content-center mt-3'><h4>Select park activities:</h4></Form.Label>

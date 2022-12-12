@@ -6,27 +6,25 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
+      
     }
   }
 `;
 
 export const QUERY_ME = gql`
-  query me {
-    me {
-      _id
+query Me {
+  me {
+    _id
+    email
+    firstName
+    lastName
+    recentSearches {
+      createdAt
+      location
+      searchId
+      searchQuery
       username
-      email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
-      }
     }
   }
+}
 `;

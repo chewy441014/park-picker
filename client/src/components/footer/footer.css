@@ -5,13 +5,14 @@
 .githubIcon a {
     width: 42px;
     height: 42px;
-    background: rgba(217, 217, 217, 0.1);
+    background: black;
     display: inline-flex;
     border-radius: 50%;
     margin-right: 6px;
     align-items: center;
     justify-content: center;
     line-height: 1;
+    background: linear-gradient(to bottom,#FFC106 , #030303 );
     /* border: 1px solid rgba(255, 255, 255, 0.5); */
 }
 .githubIcon a::before {
@@ -43,14 +44,16 @@
     contrast(86%);
 }
 .nav-item {
-    background-color: #FFC106;
+    background-color: #FFC106 ;
     color: #fff;
     text-decoration: none;
     border: 2px solid transparent;
     font-weight: bold;
+    font-size: 12px;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     transition: .4s;
+    
   }
   .nav-item:hover {
     background:transparent;
@@ -58,3 +61,13 @@
     background-color: #fff;
     cursor: pointer;
   }
+  /* .nav-item:hover > :not(:hover) {
+    opacity: .4;
+  } */
+  footer {
+    background: linear-gradient(to bottom, rgb(90, 85, 85), rgb(56, 56, 53));
+    opacity: .75;
+}
+.copyRight{
+    font-size: 12px;
+}

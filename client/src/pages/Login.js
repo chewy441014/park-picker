@@ -8,6 +8,7 @@ import Auth from '../utils/auth';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
 
+
 const Login = (props) => {
   const username = useRef();
   const password = useRef();
@@ -34,7 +35,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="flex-row justify-center mb-4">
+    <div className="flex-row justify-center mb-4 mt-4">
       <h2 className="card-header text-center p-2">Login</h2>
       <div className="card-body">
         {data ? (
@@ -43,6 +44,7 @@ const Login = (props) => {
             <Link to="/home">back to the homepage.</Link>
           </p>
         ) : (
+          <div class="formBackground">
           <Form>
 
             <FloatingLabel className="mb-3">
@@ -61,7 +63,12 @@ const Login = (props) => {
           <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                  Login
                  </Button>
+                 <div className="justify-center mb-4 mt-4">
+                  Or <spin><a href="SignUp">Sign Up</a></spin>
+          </div>
+                
       </Form>
+      </div>
        )}
         {error && (
               <div className="my-3 p-3 text-danger">

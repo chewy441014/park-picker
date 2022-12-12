@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./style.css"
 
+
 const Signup = (props) => {
   const firstName = useRef();
   const lastName = useRef();
@@ -44,7 +45,7 @@ const Signup = (props) => {
 
   return (
 
-    <div className="flex-row justify-center mb-4">
+    <div className="flex-row justify-center mb-4 mt-4">
       <h2 className="card-header text-center p-2">Sign Up</h2>
       <div className="card-body">
         {data ? (
@@ -99,6 +100,9 @@ const Signup = (props) => {
            <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                    Sign Up
           </Button>
+          <div className="justify-center mb-4 mt-4">
+                  Or <spin><a href="Login">Login</a></spin>
+          </div>
       </Form>
      
        )}
