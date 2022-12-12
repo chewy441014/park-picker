@@ -29,6 +29,17 @@ async function mapquestGetLatLon(query) {
   }
 }
 
+async function getMapquest() {
+  // expects a string
+  try {
+    const response = await axios.get('/api/mapquest/staticMap');
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
 // national parks api requests
 
 /*
@@ -101,5 +112,5 @@ async function weather(query) {
   }
 }
 
-const apicalls = { weather, mapquestGetLatLon, npsSearch, npsGetActivities };
+const apicalls = { weather, mapquestGetLatLon, npsSearch, npsGetActivities, getMapquest };
 export default apicalls;

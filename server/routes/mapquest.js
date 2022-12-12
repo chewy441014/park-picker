@@ -14,4 +14,14 @@ mapquest.get('/geoLocation', async (req, res) => {
     }
 });
 
+mapquest.get('/staticMap', (req, res) => {
+    try {
+        const response = process.env.MAPQUEST_API;
+        res.status(200).json(response);
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+})
+
 module.exports = mapquest;
