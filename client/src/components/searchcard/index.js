@@ -42,11 +42,16 @@ function SearchCard(props) {
         } else {
             const searchResult = await searchNPS(activity.current?.value);
             const userLatLon = await getUserLocation(location.current?.value);
+            const activitySelection = activity.current?.value;
+            const userCity = location.current?.value;
+            const formatUserCity = userCity[0].toUpperCase()+userCity.slice(1);
             if (searchResult && userLatLon) {
                 activity.current.value = 'Nothing Selected';
                 location.current.value = '';
                 props.data.data.setLocation(userLatLon);
                 props.data.data.setSearchResult(searchResult);
+                props.data.data.setUserActivity(activitySelection);
+                props.data.data.setUserLocationInput(formatUserCity);
                 navigate('/search')
                 // redirect the user to the results page, and pass the api responses to that other page
             }
