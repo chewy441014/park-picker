@@ -23,6 +23,8 @@ function Map(props) {
 
     // display the map and show the directions
     function displayMap(startPoint, endPoint) {
+      console.log("start point, end point")
+      console.log(startPoint, endPoint)
         console.log("map updated")
         var directions = L.mapquest.directions();
         directions.route({
