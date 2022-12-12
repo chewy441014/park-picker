@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import React, { useRef } from 'react';
+// import { useRef } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 // import components
@@ -9,23 +9,24 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Profile = () => {
-  const { username: userParam } = useParams();
+  const { username: userParam } = useRef(Auth.getProfile().data.username);
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
-  const user = data?.me || data?.user || {};
-  // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/me" />;
+
+
+  // Profile card loads if user is logged in, if not message is populated
+  
+  if (Auth.loggedIn() && data) {
+    console.log(data);
+    return <p>Data succesffuly retrieved, check console.</p>;
   }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
-  if (!user?.username) {
+  if (!Auth.loggedIn()) {
+    console.log("Not Logged In")
     return (
       <h4>
         You need to be logged in to see this. Use the navigation links above to
