@@ -34,8 +34,11 @@
   text-transform: uppercase; 
 }
 
+.park {
+  color: #3c4729;
+}
 .picker{
-  color: white;
+  color: #6f4930;
 }
 
 
