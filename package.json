@@ -9,7 +9,8 @@
     "develop": "concurrently \"npm run server \" \"npm run client\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "start": "npm run client"
   },
   "keywords": [],
   "author": "Preston Hill, Michael Gostomski, Chiemeka Anunkor, Penelope Leung, David Codner",
