@@ -4,6 +4,7 @@ import Map from '../map';
 import "./style.css"
 // import { useNavigate } from "react-router-dom";
 import "./style.css"
+import { useNavigate } from 'react-router-dom';
 
 function ParkDetailsCard(props) {
 
@@ -15,8 +16,17 @@ function ParkDetailsCard(props) {
     allactivities[5] = "things2do.htm"
     allactivities = allactivities.join("/")
 
+    const navigate = useNavigate();
+    const handleClick = () => {
+        // 👇️ replace set to true
+        navigate('/search', { replace: true });
+    };
+
     return (
         <div className='container rowDetails'>
+            <button onClick={handleClick} className='searchAgain searchB'>
+                View Results
+            </button>
 
             <header>
                 <h1 id="park-name">{parkData.fullName}</h1>

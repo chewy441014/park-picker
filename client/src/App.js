@@ -54,16 +54,18 @@ function App() {
   const [location, setLocation] = useState();
   const [parkId, setParkId] = useState();
 
+  const [userActivity, setUserActivity] = useState();
+  const [userLocationInput, setUserLocationInput] = useState();
   // useEffect(() => {
-    // const script = document.createElement('script');
-    // script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
-    // script.async = true;
-    // const link = document.createElement('link');
-    // link.href ="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
-    // link.rel = "stylesheet"
-    // link.type = "text/css"
-    // document.head.appendChild(link)
-    // document.body.appendChild(script);
+  // const script = document.createElement('script');
+  // script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
+  // script.async = true;
+  // const link = document.createElement('link');
+  // link.href ="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
+  // link.rel = "stylesheet"
+  // link.type = "text/css"
+  // document.head.appendChild(link)
+  // document.body.appendChild(script);
   // }, []);
 
   return (
@@ -71,12 +73,12 @@ function App() {
       <Router>
         <div style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
-          <div className="container mt-5 w-50 bg-white justify-center border search-box ">
+          <div className="container mt-5 w-50 pl-5 bg-white justify-center border search-box ">
             {/* context provider wraps routes */}
             <Routes>
               <Route
                 path="/home"
-                element={<Home data={{ location: location, result: searchResult, setLocation: setLocation, setSearchResult: setSearchResult }} />}
+                element={<Home data={{ location: location, result: searchResult, userActivity: userActivity, userLocationInput: userLocationInput, setUserLocationInput: setUserLocationInput, setUserActivity: setUserActivity, setLocation: setLocation, setSearchResult: setSearchResult }} />}
               />
               {/* Add additional routes */}
               <Route
@@ -94,7 +96,7 @@ function App() {
               {/* pass props to search setup */}
               <Route
                 path="/search"
-                element={<Results data={{ location: location, result: searchResult, id: parkId, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult }} />}
+                element={<Results data={{ location: location, result: searchResult, id: parkId, userActivity: userActivity, userLocationInput: userLocationInput, setUserLocationInput: setUserLocationInput, setUserActivity: setUserActivity, setPark: setParkId, setLocation: setLocation, setSearchResult: setSearchResult }} />}
               />
               <Route
                 path="/park-details"

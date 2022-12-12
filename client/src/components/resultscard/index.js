@@ -1,6 +1,11 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import "./style.css"
+import { useMutation } from '@apollo/client';
+
+import { ADD_TRIP } from '../../utils/mutations';
+
+import Auth from '../../utils/auth';
 
 // get distance between two lat and lon coordinate pairs in miles
 function getDistance(start, end) {
@@ -31,12 +36,13 @@ function sortParkData(completeResponse, userLatLon) {
 }
 
 function ResultCard(props) {
-
+    const userCity = props.data.userLocationInput;
+    const userActivity = props.data.userActivity;
     const navigate = useNavigate();
     const searchResults = props.data.result.data;
+    console.log(props.data.result.data);
     const userLatLon = props.data.location;
     const parkId = props.data.id;
-
     sortParkData(searchResults, userLatLon);
 
     const handleGetDetails = (event) => {
@@ -52,20 +58,36 @@ function ResultCard(props) {
         navigate("/park-details");
     }
 
+    const handleSaveTrip = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div id="hidden-div">
-            <a href="/home">
-                <button className='searchAgain'>
-                    Search Again
-                </button>
-            </a>
+            <div className="d-flex justify-content-between searchbtns">
+                <a href="/home">
+                    <button className='searchAgain '>
+                        Search Again
+                    </button>
+                </a>
+                <p className="text-center" id="searchContext">Showing 10 results for {userActivity} near {userCity}.</p>
+                {Auth.loggedIn() ? (
+                    <>
+                        <button className='searchAgain' onClick={handleSaveTrip}>Save Search</button>
+                    </>
+                ) : (
+                    <>
+                        <p><a href="/signup">Sign up</a> or <a href="/login">login</a> to save search.</p>
+                    </>
+                )}
+            </div>
             <h1>{props.title}</h1>
             <div className='searchContainer'>
                 {
                     searchResults.slice(0, 10).map((data) =>
                         <div data-id={data.id} onClick={handleGetDetails} data-level="0" key={data.id}>
                             <div className='searchcard' data-level="1">
-                            
+
                                 <h2 data-level="2">
                                     {data.fullName}
                                 </h2>

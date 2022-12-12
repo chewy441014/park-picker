@@ -11,9 +11,19 @@
 
 .searchAgain{
 margin-top: 20px;
-margin-left: auto;
+/* margin-left: auto; */
 border-radius: 15px;
 
+}
+
+.searchbtns {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#searchContext {
+    margin-top: 25px;
+    font-family: 'NationalPark-Semibold';
 }
 
 #hidden-div {
