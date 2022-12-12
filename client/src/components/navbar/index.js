@@ -8,7 +8,7 @@ import Auth from '../../utils/auth';
 
 
 const Navbars = () => {
-
+  
   const logout = (e) => {
     e.preventDefault();
     console.log('here, look a logout event')
@@ -20,7 +20,7 @@ const Navbars = () => {
       {/* <Navbar className="d-flex justify-content-between" bg="dark" variant="dark"> */}
       <Navbar className="navbar d-flex justify-content-between nav-font pt-2 pb-3" bg="warning" variant="secondary">
         <Container className="">
-          <Navbar.Brand href="/home" id="nav-brand-font">Park <span className="picker">Picker</span></Navbar.Brand>
+          <Navbar.Brand href="/home" id="nav-brand-font"><span className="park">Park</span><span className="picker">Picker</span></Navbar.Brand>
           <Nav className="links ml-5">
             {!Auth.loggedIn() ? (
               <>

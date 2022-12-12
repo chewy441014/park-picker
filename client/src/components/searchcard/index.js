@@ -61,7 +61,8 @@ function SearchCard(props) {
         <div >
             <Form className="mb-3">
                 <Form.Group className="mb-3" controlId="formActivityList" >
-                    <Form.Label className='d-flex justify-content-center mt-3'><h4>Select park activities:</h4></Form.Label>
+                    <Form.Label className='d-flex justify-content-center mt-3'><h5 className="searchCardHeader">Select a park activity from the dropdown list and enter your location below.</h5></Form.Label>
+                    <p className='text-center'>The 10 closest parks with your chosen activity will be displayed.</p>
                     <Form.Select ref={activity} className="squaredThree hoverEffect" >
                         {activities.map((elem, index) =>
                             <option key={index}> {elem} </option>
