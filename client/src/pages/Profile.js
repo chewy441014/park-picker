@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-// import { useRef } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import ProfileCard from '../components/userProfile';
 
 // import components
 
@@ -21,7 +21,11 @@ const Profile = () => {
   
   if (Auth.loggedIn() && data) {
     console.log(data);
-    return <p>Data succesffuly retrieved, check console.</p>;
+    return (
+      
+          <ProfileCard />
+      
+  )
   }
 
 
