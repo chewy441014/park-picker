@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import API from '../../utils/API';
+import './style.css';
 
 function Map(props) {
     // the first coordinate pair is park coords
@@ -7,15 +9,16 @@ function Map(props) {
     const userLocation = props.coords[1];
     console.log(parkLocation)
     console.log(userLocation)
+    const [myMap, setMyMap] = useState();
 
     async function initMap() {
         const data = await API.getMapquest();
         L.mapquest.key = data;
-        myMap = L.mapquest.map('map', {
+        setMyMap(L.mapquest.map('map', {
             center: [userLocation.lat, userLocation.lng],
             layers: L.mapquest.tileLayer('map'),
             zoom: 12
-        });
+        }));
     }
 
     // display the map and show the directions
@@ -29,15 +32,8 @@ function Map(props) {
     }
 
     useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
-        script.async = true;
-        document.body.appendChild(script);
         initMap();
         displayMap(userLocation, parkLocation);
-        return () => {
-            document.body.removeChild(script);
-        }
     }, []);
 
 
