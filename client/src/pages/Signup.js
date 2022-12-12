@@ -46,7 +46,7 @@ const Signup = (props) => {
   return (
 
     <div className="flex-row justify-center mb-4 mt-4">
-      <h2 className="card-header text-center p-2">Sign Up</h2>
+      <h2 className="card-header text-center p-2 text-secondary">Sign Up</h2>
       <div className="card-body">
         {data ? (
           <p>
@@ -59,7 +59,7 @@ const Signup = (props) => {
               <Col md>
                 <FloatingLabel className="mb-3">
                   <Form.Control className="form-input" type="text" placeholder="Enter First Name" ref={firstName} />
-                  <label>
+                  <label class="text-secondary">
                     First Name
                   </label>
                 </FloatingLabel>
@@ -67,7 +67,7 @@ const Signup = (props) => {
               <Col>
                 <FloatingLabel className="mb-3">
                   <Form.Control className="form-input" type="text" placeholder="Enter Last Name" ref={lastName} />
-                  <label>
+                  <label class="text-secondary">
                     Last Name
                   </label>
                 </FloatingLabel>
@@ -75,7 +75,7 @@ const Signup = (props) => {
               <Col>
                 <FloatingLabel className="mb-3">
                   <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
-                  <label>
+                  <label class="text-secondary">
                     Username
                   </label>
                 </FloatingLabel>
@@ -83,14 +83,14 @@ const Signup = (props) => {
             </Row>
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="text" placeholder="Enter Email" ref={email} />
-              <label>
+              <label class="text-secondary">
                 Email address
               </label>
             </FloatingLabel>
 
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
-              <label>
+              <label class="text-secondary">
                 New Password
               </label>
 
@@ -100,8 +100,8 @@ const Signup = (props) => {
            <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                    Sign Up
           </Button>
-          <div className="justify-center mb-4 mt-4">
-                  Or <spin><a href="Login">Login</a></spin>
+          <div className="justify-center mb-4 mt-4 text-secondary">
+                  Already have an account? <spin><a href="Login" class="text-secondary">Login</a></spin>
           </div>
       </Form>
      

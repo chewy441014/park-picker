@@ -7,34 +7,34 @@ function Map(props) {
   const parkLocation = props.coords[0];
   // the second coordinate pair is user location
   const userLocation = props.coords[1];
-  console.log(parkLocation)
-  console.log(userLocation)
-  const [myMap, setMyMap] = useState();
+
+  let myMap;
 
   async function initMap() {
     const data = await API.getMapquest();
     L.mapquest.key = data;
-    setMyMap(L.mapquest.map('map', {
+
+    myMap = L.mapquest.map('map', {
       center: [userLocation.lat, userLocation.lng],
       layers: L.mapquest.tileLayer('map'),
       zoom: 12
-    }));
+    });
+
   }
 
   // display the map and show the directions
   function displayMap(startPoint, endPoint) {
-    console.log("start point, end point")
-    console.log(startPoint, endPoint)
     console.log("map updated")
-    var directions = L.mapquest.directions();
+    let directions = L.mapquest.directions();
     directions.route({
-      start: startPoint,
-      end: endPoint
+      start: [startPoint.lat, startPoint.lng],
+      end: [endPoint.lat, endPoint.lng]
     });
   }
 
-  useEffect(() => {
-    initMap();
+  useEffect(async () => {
+
+    await initMap();
     displayMap(userLocation, parkLocation);
   }, []);
 

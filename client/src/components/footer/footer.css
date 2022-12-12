@@ -67,6 +67,9 @@
   footer {
     background: linear-gradient(to bottom, rgb(90, 85, 85), rgb(56, 56, 53));
     opacity: .75;
+    /* background: transparent; */
+    padding-top:15px;
+    
 }
 .copyRight{
     font-size: 12px;

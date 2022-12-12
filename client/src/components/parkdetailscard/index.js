@@ -11,13 +11,9 @@ function ParkDetailsCard(props) {
     const userLatLon = props.data.location;
     const parkId = props.data.id;
     const parkData = searchResults.filter((elem) => elem.id === parkId)[0];
-    console.log(searchResults)
-    console.log(parkData.directionsUrl)
     let allactivities = parkData.directionsUrl.split("/")
     allactivities[5] = "things2do.htm"
     allactivities = allactivities.join("/")
-
-
 
     return (
         <div className='container rowDetails'>
