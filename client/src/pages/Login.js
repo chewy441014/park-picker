@@ -35,8 +35,10 @@ const Login = (props) => {
   };
 
   return (
+
+     <div class="formBackground">
     <div className="flex-row justify-center mb-4 mt-4">
-      <h2 className="card-header text-center p-2">Login</h2>
+      <h2 className="card-header text-center p-2 text-secondary">Login</h2>
       <div className="card-body">
         {data ? (
           <p>
@@ -44,18 +46,18 @@ const Login = (props) => {
             <Link to="/home">back to the homepage.</Link>
           </p>
         ) : (
-          <div class="formBackground">
+         
           <Form>
 
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
-              <label>
+              <label class="text-secondary">
                 Username
               </label>
             </FloatingLabel>
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
-              <label>
+              <label class="text-secondary">
                 Password
               </label>
 
@@ -63,12 +65,12 @@ const Login = (props) => {
           <Button className="btn btn-block btn-primary searchB" style={{ cursor: 'pointer' }} type="button" onClick={handleFormSubmit}>
                  Login
                  </Button>
-                 <div className="justify-center mb-4 mt-4">
-                  Or <spin><a href="SignUp">Sign Up</a></spin>
+                 <div className="justify-center mb-4 mt-4 text-secondary">
+                  Need an account? <spin><a href="SignUp" class="text-secondary">Sign Up</a></spin>
           </div>
                 
       </Form>
-      </div>
+    
        )}
         {error && (
               <div className="my-3 p-3 text-danger">
@@ -77,8 +79,11 @@ const Login = (props) => {
             )}
   </div>
     </div>
+    </div>
   );
 };
+
+
 // <main className="flex-row justify-center mb-4">
 //   <div className="col-12 col-lg-10">
 //     <div className="card">
