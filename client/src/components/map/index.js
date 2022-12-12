@@ -7,11 +7,13 @@ function Map(props) {
   const parkLocation = props.coords[0];
   // the second coordinate pair is user location
   const userLocation = props.coords[1];
+
   let myMap;
 
   async function initMap() {
     const data = await API.getMapquest();
     L.mapquest.key = data;
+
     myMap = L.mapquest.map('map', {
       center: [userLocation.lat, userLocation.lng],
       layers: L.mapquest.tileLayer('map'),
