@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Node setup for the Park Picker project client",
   "private": true,
-  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
