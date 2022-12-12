@@ -65,21 +65,21 @@ function ResultCard(props) {
     return (
         <div id="hidden-div">
             <div className="d-flex justify-content-between searchbtns">
-            <a href="/home">
-                <button className='searchAgain'>
-                    Search Again
-                </button>
-            </a>
-            <p className="text-center" id="searchContext">Showing 10 results for {userActivity} near {userCity}.</p>
-            {Auth.loggedIn() ? (
-            <>    
-                <button className='searchAgain' onClick={handleSaveTrip}>Save Search</button> 
-            </>
-            ) : (
-            <>    
-                <p><a href="/signup">Sign up</a> or <a href="/login">login</a> to save search.</p>
-            </>
-            )}
+                <a href="/home">
+                    <button className='searchAgain '>
+                        Search Again
+                    </button>
+                </a>
+                <p className="text-center" id="searchContext">Showing 10 results for {userActivity} near {userCity}.</p>
+                {Auth.loggedIn() ? (
+                    <>
+                        <button className='searchAgain' onClick={handleSaveTrip}>Save Search</button>
+                    </>
+                ) : (
+                    <>
+                        <p><a href="/signup">Sign up</a> or <a href="/login">login</a> to save search.</p>
+                    </>
+                )}
             </div>
             <h1>{props.title}</h1>
             <div className='searchContainer'>
@@ -87,7 +87,7 @@ function ResultCard(props) {
                     searchResults.slice(0, 10).map((data) =>
                         <div data-id={data.id} onClick={handleGetDetails} data-level="0" key={data.id}>
                             <div className='searchcard' data-level="1">
-                            
+
                                 <h2 data-level="2">
                                     {data.fullName}
                                 </h2>

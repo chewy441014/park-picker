@@ -57,15 +57,15 @@ function App() {
   const [userActivity, setUserActivity] = useState();
   const [userLocationInput, setUserLocationInput] = useState();
   // useEffect(() => {
-    // const script = document.createElement('script');
-    // script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
-    // script.async = true;
-    // const link = document.createElement('link');
-    // link.href ="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
-    // link.rel = "stylesheet"
-    // link.type = "text/css"
-    // document.head.appendChild(link)
-    // document.body.appendChild(script);
+  // const script = document.createElement('script');
+  // script.src = "https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js";
+  // script.async = true;
+  // const link = document.createElement('link');
+  // link.href ="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
+  // link.rel = "stylesheet"
+  // link.type = "text/css"
+  // document.head.appendChild(link)
+  // document.body.appendChild(script);
   // }, []);
 
   return (
@@ -73,7 +73,7 @@ function App() {
       <Router>
         <div style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
-          <div className="container mt-5 w-50 bg-white justify-center border search-box ">
+          <div className="container mt-5 w-50 pl-5 bg-white justify-center border search-box ">
             {/* context provider wraps routes */}
             <Routes>
               <Route
