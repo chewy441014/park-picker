@@ -1,5 +1,6 @@
-import ProfileCard from '../components/userProfile';
 import Auth from '../utils/auth';
+import "./style.css"
+import profile from '../assets/images/icons/profilePlaceholder.png'
 // import components
 
 
@@ -7,19 +8,35 @@ import Auth from '../utils/auth';
 
 
 const Profile = () => {
-  
+
 
 
 
   // Profile card loads if user is logged in, if not message is populated
-  
+
   if (Auth.loggedIn()) {
-    
+
     return (
-      <ProfileCard />
       
-  )
-  }
+      <section className="d-flex flex-column justify-content-end" id='info'>
+       
+        <div className='col' >
+
+           <div className='flex-row'>
+           <img id='profilePic' alt='Placeholder profile icon' src={profile}></img>
+           <h2>{Auth.getProfile().data.firstName} {Auth.getProfile().data.lastName}</h2>
+           </div>
+
+          <h5>Username: {Auth.getProfile().data.username} <br /> Email: {Auth.getProfile().data.email}</h5>
+        </div>
+        <hr />
+        <section className='d-flex flex-column align-items-center'>
+          <h4>Saved Trips:</h4>
+        </section>
+      </section>
+      
+    )
+  };
 
 
   if (!Auth.loggedIn()) {
@@ -31,12 +48,6 @@ const Profile = () => {
       </h4>
     );
   }
-
-  return (
-    <div>
-      
-    </div>
-  );
 };
 
 export default Profile;
