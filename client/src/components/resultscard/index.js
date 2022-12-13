@@ -76,19 +76,22 @@ function ResultCard(props) {
         console.log(error);
     }
 };
+const handleSearchAgain = () => {
+    navigate(-1);
+}
 
     return (
         <div id="hidden-div">
             <div className="d-flex justify-content-between searchbtns">
-                <a href="/home">
-                    <button className='searchAgain '>
+                
+                    <button onClick={handleSearchAgain} className='searchAgain otherB'>
                         Search Again
                     </button>
-                </a>
+                
                 <p className="text-center" id="searchContext">Showing 10 results for {userActivity} near {userCity}.</p>
                 {Auth.loggedIn() ? (
                     <>
-                        <button className='searchAgain' onClick={handleSaveTrip}>Save Search</button>
+                        <button className='searchAgain otherB' onClick={handleSaveTrip}>Save Search</button>
                     </>
                 ) : (
                     <>
@@ -101,7 +104,7 @@ function ResultCard(props) {
                 {
                     searchResults.slice(0, 10).map((data) =>
                         <div data-id={data.id} onClick={handleGetDetails} data-level="0" key={data.id}>
-                            <div className='searchcard' data-level="1">
+                            <div className='searchcard borderCustom' data-level="1">
 
                                 <h2 data-level="2">
                                     {data.fullName}

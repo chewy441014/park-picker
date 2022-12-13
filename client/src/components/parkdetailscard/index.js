@@ -2,8 +2,7 @@ import React from 'react';
 import Weather from '../weather';
 import Map from '../map';
 import "./style.css"
-// import { useNavigate } from "react-router-dom";
-import "./style.css"
+
 import { useNavigate } from 'react-router-dom';
 
 function ParkDetailsCard(props) {

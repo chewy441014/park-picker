@@ -73,7 +73,7 @@ function App() {
       <Router>
         <div style={myStyle} className="d-flex flex-column justify-content-between min-vh-100">
           <Navbar />
-          <div className="container mt-5 w-50 pl-5 bg-white justify-center border search-box ">
+          <div className="container-fluid mt-5 w-50 pl-5 bg-white justify-center border search-box ">
             {/* context provider wraps routes */}
             <Routes>
               <Route
