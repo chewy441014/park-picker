@@ -24,13 +24,13 @@ const Navbars = () => {
           <Nav className="links ml-5">
             {!Auth.loggedIn() ? (
               <>
-                <Nav.Link href="/signup">Sign Up</Nav.Link>
+                <Nav.Link className='text-center' href="/signup">Sign Up</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
               </>
             ) : (
               <>
-                <span className="nav-link">Hi, {Auth.getProfile().data.firstName}!</span>
-                <Nav.Link href="/userdash">User Dashboard</Nav.Link>
+                <span className="text-center nav-link">Hi, {Auth.getProfile().data.firstName}!</span>
+                <Nav.Link className='text-center' href="/userdash">User Dashboard</Nav.Link>
                 <Nav.Link onClick={(event) => logout(event)}>Logout</Nav.Link>
               </>
             )}

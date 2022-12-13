@@ -18,7 +18,7 @@ const Profile = () => {
 
     return (
       
-      <section className="d-flex flex-column justify-content-end" id='info'>
+      <section className="d-flex flex-column justify-content-end my-2" id='info'>
        
         <div className='col' >
 
