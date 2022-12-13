@@ -51,7 +51,7 @@ const resolvers = {
           location,
           username: context.user.username, 
         });
-        console.log(trip);
+      
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { recentSearches: trip._id } }
