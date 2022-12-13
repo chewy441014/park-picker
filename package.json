@@ -10,7 +10,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
-    "start": "npm run server"
+    "start": "cd server && npm run start"
   },
   "keywords": [],
   "author": "Preston Hill, Michael Gostomski, Chiemeka Anunkor, Penelope Leung, David Codner",
