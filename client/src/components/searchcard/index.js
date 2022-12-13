@@ -15,7 +15,7 @@ function SearchCard(props) {
     const getActivities = async () => {
         const response = await API.npsGetActivities();
         const list = response;
-        list.unshift("Nothing Selected");
+        list.unshift("Please select an activity");
         setActivities(list);
     }
 
@@ -36,7 +36,7 @@ function SearchCard(props) {
         if (!activity.current?.value || !location.current?.value) {
             console.log('Search activity or location blank')
 
-        } else if (activity.current?.value === "Nothing Selected") {
+        } else if (activity.current?.value === "Please select an activity") {
             console.log('Nothing selected selected, please make a selection')
 
         } else {
@@ -46,7 +46,7 @@ function SearchCard(props) {
             const userCity = location.current?.value;
             const formatUserCity = userCity[0].toUpperCase()+userCity.slice(1);
             if (searchResult && userLatLon) {
-                activity.current.value = 'Nothing Selected';
+                activity.current.value = 'Please select an activity';
                 location.current.value = '';
                 props.data.data.setLocation(userLatLon);
                 props.data.data.setSearchResult(searchResult);
@@ -66,7 +66,7 @@ function SearchCard(props) {
         <div >
             <Form className="mb-3">
                 <Form.Group className="mb-3" controlId="formActivityList" >
-                    <Form.Label className='d-flex justify-content-center mt-3'><h5 className="searchCardHeader">Select a park activity from the dropdown list and enter your location below.</h5></Form.Label>
+                    <Form.Label className='d-flex justify-content-center text-center mt-3'><h5 className="searchCardHeader">Select a park activity from the dropdown list and enter your location below.</h5></Form.Label>
                     <p className='text-center'>The 10 closest parks with your chosen activity will be displayed.</p>
                     <Form.Select ref={activity} className="squaredThree hoverEffect" >
                         {activities.map((elem, index) =>
