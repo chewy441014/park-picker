@@ -63,10 +63,6 @@ function ResultCard(props) {
         e.preventDefault();
         
     try {    
-        console.log(Auth.getProfile().data.username);
-        console.log(userActivity);
-        console.log(userCity);
-        console.log(Auth.getToken());
         const { response } = await addTrip({
             variables: {
                 
@@ -75,7 +71,6 @@ function ResultCard(props) {
                 username: Auth.getProfile().data.username
             },
         });
-        console.log(response);
     } catch (e) {
         console.error(e);
         console.log(error);
