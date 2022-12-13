@@ -18,10 +18,10 @@ query Me {
     email
     firstName
     lastName
+    username
     recentSearches {
-      createdAt
+      _id
       location
-      searchId
       searchQuery
       username
     }

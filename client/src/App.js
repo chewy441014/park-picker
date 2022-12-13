@@ -91,7 +91,7 @@ function App() {
               />
               <Route
                 path="/userdash"
-                element={<Profile />}
+                element={<Profile data={{ location: location, result: searchResult, userActivity: userActivity, userLocationInput: userLocationInput, setUserLocationInput: setUserLocationInput, setUserActivity: setUserActivity, setLocation: setLocation, setSearchResult: setSearchResult }}/>}
               />
               {/* pass props to search setup */}
               <Route
