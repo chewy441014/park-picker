@@ -3,8 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../utils/queries';
 import Auth from '../utils/auth';
 import "./style.css"
-import profile from '../assets/images/icons/profilePlaceholder.png'
-import { getDataFromTree } from '@apollo/client/react/ssr';
+import profile from '../assets/images/icons/profilePlaceholder.png';
 // import components
 import API from '../utils/API';
 import { useNavigate } from 'react-router-dom';
