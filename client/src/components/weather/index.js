@@ -37,7 +37,7 @@ function Weather(props) {
   }
 
   return (
-    <div className="Weather-card">
+    <div className="d-flex justify-content-around Weather-card">
       {weather &&
         weather.map((day) => (
           <WeatherCard weather={day} key={day.ts} />
