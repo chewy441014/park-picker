@@ -17,7 +17,7 @@ const Signup = (props) => {
   const email = useRef();
   const username = useRef();
   const password = useRef();
-
+  
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (e) => {
@@ -59,7 +59,7 @@ const Signup = (props) => {
               <Col md>
                 <FloatingLabel className="mb-3">
                   <Form.Control className="form-input" type="text" placeholder="Enter First Name" ref={firstName} />
-                  <label class="text-secondary">
+                  <label className="text-secondary">
                     First Name
                   </label>
                 </FloatingLabel>
@@ -67,7 +67,7 @@ const Signup = (props) => {
               <Col>
                 <FloatingLabel className="mb-3">
                   <Form.Control className="form-input" type="text" placeholder="Enter Last Name" ref={lastName} />
-                  <label class="text-secondary">
+                  <label className="text-secondary">
                     Last Name
                   </label>
                 </FloatingLabel>
@@ -75,7 +75,7 @@ const Signup = (props) => {
               <Col>
                 <FloatingLabel className="mb-3">
                   <Form.Control className="form-input" type="text" placeholder="Enter Username" ref={username} />
-                  <label class="text-secondary">
+                  <label className="text-secondary">
                     Username
                   </label>
                 </FloatingLabel>
@@ -83,14 +83,14 @@ const Signup = (props) => {
             </Row>
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="text" placeholder="Enter Email" ref={email} />
-              <label class="text-secondary">
+              <label className="text-secondary">
                 Email address
               </label>
             </FloatingLabel>
 
             <FloatingLabel className="mb-3">
               <Form.Control className="form-input" type="password" placeholder="Enter your new password" ref={password} />
-              <label class="text-secondary">
+              <label className="text-secondary">
                 New Password
               </label>
 
@@ -101,7 +101,7 @@ const Signup = (props) => {
                    Sign Up
           </Button>
           <div className="justify-center mb-4 mt-4 text-secondary">
-                  Already have an account? <spin><a href="Login" class="text-secondary">Login</a></spin>
+                  Already have an account? <span><a href="Login" className="text-secondary">Login</a></span>
           </div>
       </Form>
      

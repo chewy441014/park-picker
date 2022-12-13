@@ -7,8 +7,8 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('recentSearches');
     },
-    trip: async (parent, { searchId }) => {
-      return Trip.findOne({ searchId });
+    trip: async (parent, { tripId }) => {
+      return Trip.findOne({ tripId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -44,21 +44,19 @@ const resolvers = {
 
       return { token, user };
     },
-    addTrip: async (parent, { userId, searchQuery, location }, context) => {
+    addTrip: async (parent, { searchQuery, location }, context) => {
       if (context.user) {
-        const trip = await User.findOneAndUpdate(
-          { _id: userId },
-          {
-            $addToSet: { 
-              recentSearches: { searchQuery, location },
-            },
-          },
-            {
-              new: true,
-              runValidators: true,
-            }
+        const trip = await Trip.create({ 
+          searchQuery, 
+          location,
+          username: context.user.username, 
+        });
+        console.log(trip);
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { recentSearches: trip._id } }
         );
-
+        
         return trip;
       }
       throw new AuthenticationError('Must be logged in to save a trip!');
