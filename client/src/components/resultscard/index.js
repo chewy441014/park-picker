@@ -97,7 +97,7 @@ function ResultCard(props) {
                     </>
                 ) : (
                     <>
-                        <p><a href="/signup">Sign up</a> or <a href="/login">login</a> to save search.</p>
+                        
                     </>
                 )}
             </div>
