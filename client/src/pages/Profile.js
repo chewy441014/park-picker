@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME, QUERY_USER } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import "./style.css"
 import profile from '../assets/images/icons/profilePlaceholder.png';
-// import components
+
 import API from '../utils/API';
 import { useNavigate } from 'react-router-dom';
 
@@ -72,7 +72,7 @@ const navigate = useNavigate();
 
       <section className="d-flex flex-column justify-content-end my-2" id='info'>
 
-        <div className='col' >
+        <section className='text-center' >
 
           <div className='flex-row'>
             <img id='profilePic' alt='Placeholder profile icon' src={profile}></img>
@@ -80,13 +80,13 @@ const navigate = useNavigate();
           </div>
 
           <h5>Username: {Auth.getProfile().data.username} <br /> Email: {Auth.getProfile().data.email}</h5>
-        </div>
+        </section>
         <hr />
         <section className='d-flex flex-column align-items-center'>
           <h4>Saved Trips:</h4>
           {
             data.me.recentSearches.map((elem) =>
-              <h5 data-level="1" key={elem._id} onClick={searchHandler} ><span data-level="2" id='search'>{elem.searchQuery}</span> from <span data-level="2" id='location'>{elem.location}</span></h5>
+              <h5 className="borderCustom px-2" data-level="1" key={elem._id} onClick={searchHandler} ><span data-level="2" id='search'>{elem.searchQuery}</span> from <span data-level="2" id='location'>{elem.location}</span></h5>
             )
           }
         </section>

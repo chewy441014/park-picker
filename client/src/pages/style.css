@@ -1,4 +1,4 @@
-.searchB{
+.searchB {
     background-color: #FFC107 !important;
     color: black !important;
     width: 100%;
@@ -7,7 +7,7 @@
     font-weight: bold;
 }
 
-.formBackground{
+.formBackground {
     background: rgba(255, 255, 255, 0.4);
 }
 
@@ -16,6 +16,24 @@
     background-color: transparent;
 }
 
-#profilePic{
+#profilePic {
     width: 10%
+}
+
+
+.otherB {
+    background-color: #FFC107 !important;
+    color: black !important;
+    box-shadow: 5px 5px 5px gray;
+    border-color: gray !important;
+    font-weight: bold;
+}
+
+.borderCustom {
+    border: 4px solid #3C4729;
+    border-radius: 15px;
+}
+
+.borderCustom:hover {
+    box-shadow: inset 0 0 5px 5px rgba(224, 163, 21, 1);
 }
